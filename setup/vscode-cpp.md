@@ -7,7 +7,7 @@
 
 ## สารบัญ
 
-- [Windows](#-windows)
+- [Windows (แนะนำ — ใช้ Scoop)](#-windows-แนะนำ--ใช้-scoop)
 - [macOS](#-macos)
 - [Linux (Ubuntu/Debian)](#-linux-ubuntudebian)
 - [ตั้งค่า VSCode](#-ตั้งค่า-vscode)
@@ -16,34 +16,65 @@
 
 ---
 
-## 🪟 Windows
+## 🪟 Windows (แนะนำ — ใช้ Scoop)
 
-### ขั้นที่ 1 — ติดตั้ง MinGW-w64 (GCC Compiler สำหรับ Windows)
+ใช้ **Scoop** ซึ่งเป็น package manager สำหรับ Windows — ติดตั้งโปรแกรมได้ง่ายและไม่ต้องการ admin
 
-1. เข้าไปที่ [winlibs.com](https://winlibs.com/) แล้วคลิก **Download** ที่ช่อง  
-   `GCC 13.x.x + LLVM/Clang ... Win64 — UCRT — MSVCRT → Zip archive`
+### ขั้นที่ 1 — ติดตั้ง Scoop
 
-2. แตกไฟล์ zip → ได้โฟลเดอร์ `mingw64`
+เปิด **PowerShell ธรรมดา (ไม่ใช่ Run as Administrator)** แล้วรัน 2 คำสั่งนี้ตามลำดับ:
 
-3. **ย้ายโฟลเดอร์** `mingw64` ไปไว้ที่ `C:\mingw64`
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
 
-4. เพิ่ม Path ให้ระบบรู้จัก compiler:
-   - กด **Win + S** → พิมพ์ `environment variables` → คลิก **Edit the system environment variables**
-   - คลิก **Environment Variables...**
-   - ในช่อง **System variables** → เลือก `Path` → คลิก **Edit**
-   - คลิก **New** → พิมพ์ `C:\mingw64\bin` → กด **OK** ทุกหน้าต่าง
+```powershell
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
 
-5. เปิด **Command Prompt** ใหม่แล้วทดสอบ:
-   ```
-   g++ --version
-   ```
-   ถ้าเห็นเวอร์ชัน g++ แสดงว่าสำเร็จ ✅
+### ขั้นที่ 2 — ติดตั้ง Git
+
+```powershell
+scoop install git
+```
+
+### ขั้นที่ 3 — เพิ่มแหล่งดาวน์โหลดโปรแกรม (extras bucket)
+
+```powershell
+scoop bucket add extras
+```
+
+### ขั้นที่ 4 — ติดตั้ง MinGW (GCC Compiler)
+
+```powershell
+scoop install extras/mingw
+```
+
+### ขั้นที่ 5 — ติดตั้ง VSCode
+
+```powershell
+scoop install extras/vscode
+```
+
+### ขั้นที่ 6 — เพิ่ม Extension ใน VSCode
+
+เปิด VSCode → กด `Ctrl+Shift+X` ค้นหาและติดตั้ง:
+
+- **Code Runner** โดย Jun Han
+
+### ขั้นที่ 7 — ตรวจสอบว่า g++ พร้อมใช้
+
+เปิด Terminal ใน VSCode (เลือก PowerShell) แล้วรัน:
+
+```powershell
+get-command g++
+```
+
+> ✅ ผลลัพธ์ควรเป็น path ที่ขึ้นต้นด้วย `C:\` เช่น `C:\Users\...\scoop\apps\mingw\...\g++.exe`
 
 ---
 
 ## 🍎 macOS
-
-### ขั้นที่ 1 — ติดตั้ง Command Line Tools (มี g++ ติดมาด้วย)
 
 เปิด **Terminal** แล้วรัน:
 
@@ -51,14 +82,13 @@
 xcode-select --install
 ```
 
-กดติดตั้งตามขั้นตอน (~2-5 นาที)
+กดติดตั้งตามขั้นตอน (~2-5 นาที) แล้วทดสอบ:
 
-ทดสอบ:
 ```bash
 g++ --version
 ```
 
-> **หมายเหตุ:** macOS จะใช้ Clang แทน GCC จริงๆ แต่คำสั่ง `g++` ทำงานได้เหมือนกันครับ
+> **หมายเหตุ:** macOS ใช้ Clang แทน GCC จริงๆ แต่คำสั่ง `g++` ทำงานได้เหมือนกัน
 
 ---
 
@@ -72,6 +102,7 @@ sudo apt install build-essential -y
 ```
 
 ทดสอบ:
+
 ```bash
 g++ --version
 ```
@@ -80,60 +111,11 @@ g++ --version
 
 ## 💻 ตั้งค่า VSCode
 
-### ขั้นที่ 1 — ดาวน์โหลด VSCode
-
-ไปที่ [code.visualstudio.com](https://code.visualstudio.com/) → Download ตาม OS
-
-### ขั้นที่ 2 — ติดตั้ง Extension ที่จำเป็น
-
-เปิด VSCode → กด `Ctrl+Shift+X` (หรือ `Cmd+Shift+X` บน Mac)  
-ค้นหาและติดตั้ง Extension เหล่านี้:
-
-| Extension | ผู้พัฒนา | ใช้ทำอะไร |
-|---|---|---|
-| **C/C++** | Microsoft | Syntax highlight, IntelliSense |
-| **C/C++ Extension Pack** | Microsoft | รวม Tools ที่จำเป็นทั้งหมด |
-| **Code Runner** | Jun Han | รันโค้ดด้วยปุ่มเดียว |
-
-### ขั้นที่ 3 — ตั้งค่า Code Runner
+### ตั้งค่า Code Runner ให้รันใน Terminal
 
 1. กด `Ctrl+,` เพื่อเปิด Settings
 2. ค้นหา `code-runner.runInTerminal`
 3. **เปิดใช้งาน** (ติ๊กถูก) — สำคัญมาก ไม่งั้นรับ input ไม่ได้
-
-### ขั้นที่ 4 — สร้างไฟล์ Config `.vscode/tasks.json`
-
-ใน VSCode เปิดโฟลเดอร์ repo → กด `Ctrl+Shift+P` → พิมพ์ `Tasks: Configure Default Build Task` → เลือก `C/C++: g++ build active file`
-
-VSCode จะสร้างไฟล์ `.vscode/tasks.json` ให้อัตโนมัติ หน้าตาประมาณนี้:
-
-```json
-{
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "type": "cppbuild",
-      "label": "Build C++ file",
-      "command": "/usr/bin/g++",
-      "args": [
-        "-std=c++17",
-        "-Wall",
-        "-g",
-        "${file}",
-        "-o",
-        "${fileDirname}/${fileBasenameNoExtension}"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": ["$gcc"]
-    }
-  ]
-}
-```
-
-> **Windows:** เปลี่ยน `"command"` เป็น `"C:/mingw64/bin/g++.exe"`
 
 ---
 
@@ -141,83 +123,48 @@ VSCode จะสร้างไฟล์ `.vscode/tasks.json` ให้อัต
 
 ### วิธีที่ 1 — ใช้ Code Runner (ง่ายที่สุด)
 
-1. เปิดไฟล์ `.cpp` ใดก็ได้ เช่น `examples/01-tree/01_node_basic.cpp`
+1. เปิดไฟล์ `.cpp` เช่น `examples/01-tree/01_node_basic.cpp`
 2. กด **▶ Run** มุมขวาบน หรือ `Ctrl+Alt+N`
 3. ดูผลลัพธ์ใน Terminal ด้านล่าง
 
-### วิธีที่ 2 — ใช้ Terminal โดยตรง (แนะนำ เข้าใจ process ดีกว่า)
+### วิธีที่ 2 — ใช้ Terminal โดยตรง (แนะนำ)
 
 ```bash
-# เข้าโฟลเดอร์ตัวอย่าง
-cd examples/01-tree
-
 # Compile
-g++ -std=c++17 -Wall 01_node_basic.cpp -o node_basic
+g++ -std=c++17 -Wall examples/01-tree/03_bst.cpp -o bst
 
 # รัน
-./node_basic          # macOS / Linux
-node_basic.exe        # Windows
+./bst           # macOS / Linux
+.\bst.exe       # Windows PowerShell
 ```
-
-### วิธีที่ 3 — ใช้ Build Task
-
-เปิดไฟล์ `.cpp` แล้วกด `Ctrl+Shift+B` — VSCode จะ compile ไฟล์ที่เปิดอยู่
 
 ---
 
 ## 🔧 แก้ปัญหาที่พบบ่อย
 
-### ❌ `g++: command not found` หรือ `'g++' is not recognized`
+### ❌ `get-command g++` ไม่เจอ หรือ error
 
-**Windows:** Path ยังไม่ถูก — ทำซ้ำขั้นตอนเพิ่ม `C:\mingw64\bin` ใน Environment Variables แล้วเปิด Terminal ใหม่
+รีสตาร์ท VSCode แล้วลองใหม่ — Scoop อัปเดต PATH ต้องเปิด terminal ใหม่ถึงจะเห็น
 
-**macOS:** รัน `xcode-select --install` อีกครั้ง
+### ❌ Code Runner รันแล้วไม่แสดงผล
 
-**Linux:** รัน `sudo apt install build-essential -y` อีกครั้ง
-
----
-
-### ❌ ไม่เห็น IntelliSense / autoComplete
-
-กด `Ctrl+Shift+P` → `C/C++: Select IntelliSense Configuration` → เลือก compiler ที่ติดตั้ง
-
----
+ตรวจสอบว่าเปิด `code-runner.runInTerminal` ใน Settings แล้ว
 
 ### ❌ Compile ผ่านแต่รันแล้วหน้าต่างปิดทันที (Windows)
 
-เพิ่มบรรทัดนี้ก่อน `return 0;` ในโค้ด:
-```cpp
-system("pause");  // Windows only
-```
-
-หรือรันผ่าน Terminal แทน Code Runner
+รันผ่าน Terminal แทน Code Runner โดยตรง
 
 ---
 
-### ❌ ใช้ C++17 features ไม่ได้ (`structured bindings` ฯลฯ)
-
-ตรวจสอบว่า compile flag มี `-std=c++17`:
-```bash
-g++ -std=c++17 myfile.cpp -o myfile
-```
-
----
-
-## 📌 Summary คำสั่งที่ใช้บ่อย
+## 📌 คำสั่งที่ใช้บ่อย
 
 ```bash
-# Compile ธรรมดา
-g++ main.cpp -o main
-
 # Compile พร้อม C++17 + Warning
 g++ -std=c++17 -Wall main.cpp -o main
 
-# Compile + Debug info
-g++ -std=c++17 -g main.cpp -o main
-
 # รัน
 ./main          # macOS/Linux
-main.exe        # Windows
+.\main.exe      # Windows PowerShell
 ```
 
 ---

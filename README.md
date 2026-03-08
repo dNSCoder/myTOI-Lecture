@@ -1,7 +1,7 @@
-# 🌿 DSA Thai — Data Structures & Algorithms ด้วย C++
+# 🌿 DSA Thai — Data Structures & Algorithms สำหรับ Computer Olympiad
 
-บทเรียน DSA แบบ Interactive ภาษาไทย พร้อม Diagram, Code C++ และ Visual Demo  
-อิง Curriculum จาก [GeeksforGeeks](https://www.geeksforgeeks.org/dsa/) และ [Programiz](https://www.programiz.com/dsa)
+บทเรียน DSA ภาษาไทย เน้น **Competitive Programming style** พร้อม Diagram, Code C++ และ Interactive Demo  
+อิง Curriculum จาก [GeeksforGeeks](https://www.geeksforgeeks.org/dsa/), [Programiz](https://www.programiz.com/dsa), [cp-algorithms](https://cp-algorithms.com/) และ [USACO Guide](https://usaco.guide/)
 
 🌐 **[เปิดดูบทเรียนออนไลน์ →](https://[your-username].github.io/[your-repo-name]/)**
 
@@ -9,11 +9,12 @@
 
 ## 📚 บทเรียนที่มี
 
-| บท | หัวข้อ | สถานะ | เวลา |
+| บท | หัวข้อ | Part | สถานะ |
 |---|---|---|---|
-| 🌳 | [Tree Data Structure](tree-dsa-lesson.html) | ✅ พร้อมเรียน | ~3 ชั่วโมง |
-| 🕸 | Graph & Shortest Path | 🔒 เร็วๆ นี้ | ~4 ชั่วโมง |
-| 📈 | Complexity Analysis | 🔒 เร็วๆ นี้ | ~2 ชั่วโมง |
+| 🌳 | Tree Data Structure | [Part 1 — ทฤษฎี](docs/tree-dsa-lesson.html) | ✅ พร้อมเรียน |
+| 🌳 | Tree Data Structure | [Part 2 — CP Implementation](docs/tree-cp-lesson.html) | ✅ พร้อมเรียน |
+| 🕸 | Graph & Shortest Path | — | 🔒 เร็วๆ นี้ |
+| 📈 | Complexity Analysis | — | 🔒 เร็วๆ นี้ |
 
 ---
 
@@ -32,7 +33,8 @@ dsa-thai/
 │       └── 04_avl.cpp
 └── docs/                       ← GitHub Pages serve จากโฟลเดอร์นี้
     ├── index.html
-    └── tree-dsa-lesson.html
+    ├── tree-dsa-lesson.html    ← Part 1: ทฤษฎี
+    └── tree-cp-lesson.html     ← Part 2: CP Implementation
 ```
 
 ---
@@ -67,11 +69,10 @@ g++ -std=c++17 examples/01-tree/03_bst.cpp -o bst && ./bst
 
 ## 🛠 Requirements สำหรับรัน C++
 
-- **Compiler:** GCC 9+ หรือ Clang 10+ (Windows: MinGW-w64)
-- **Editor:** VSCode + C/C++ Extension (แนะนำ)
-- **Standard:** C++17
-
-ดูขั้นตอนติดตั้งแบบละเอียดได้ที่ → [setup/vscode-cpp.md](setup/vscode-cpp.md)
+- **Windows:** ติดตั้งผ่าน Scoop → ดู [setup/vscode-cpp.md](setup/vscode-cpp.md)
+- **macOS:** `xcode-select --install`
+- **Linux:** `sudo apt install build-essential`
+- **Standard:** C++17 (`-std=c++17`)
 
 ---
 
@@ -81,4 +82,4 @@ g++ -std=c++17 examples/01-tree/03_bst.cpp -o bst && ./bst
 
 ---
 
-*อ้างอิง: [GeeksforGeeks DSA](https://www.geeksforgeeks.org/dsa/) · [Programiz DSA](https://www.programiz.com/dsa)*
+*อ้างอิง: [GeeksforGeeks DSA](https://www.geeksforgeeks.org/dsa/) · [Programiz DSA](https://www.programiz.com/dsa) · [cp-algorithms.com](https://cp-algorithms.com/) · [USACO Guide](https://usaco.guide/)*

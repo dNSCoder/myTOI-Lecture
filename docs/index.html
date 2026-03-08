@@ -3,189 +3,254 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DSA Thai — บทเรียน Data Structures & Algorithms C++</title>
+<title>TOI UBU — บทเรียน DSA สำหรับ Computer Olympiad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:#0d1117; --bg2:#161b22; --border:#21262d;
-  --green:#4ade80; --green-dim:#2d6a4f; --green-bright:#6ee7b7;
-  --gold:#fbbf24; --blue:#60a5fa; --red:#f87171; --purple:#c084fc; --orange:#fb923c;
-  --text:#e2e8f0; --text-dim:#94a3b8; --text-muted:#64748b;
+:root{
+  --bg:#0d1117;--bg2:#161b22;--border:#21262d;
+  --green:#4ade80;--green-dim:#2d6a4f;--green-bright:#6ee7b7;
+  --gold:#fbbf24;--blue:#60a5fa;--red:#f87171;--purple:#c084fc;
+  --text:#e2e8f0;--text-dim:#94a3b8;--text-muted:#64748b;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',sans-serif;min-height:100vh}
 
-nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(13,17,23,.92);backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--border);
-  padding:0 60px;display:flex;align-items:center;justify-content:space-between;height:64px;
-}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--green);display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo span{color:var(--text-muted);font-size:.82rem;font-family:'Fira Code',monospace}
-.nav-links{display:flex;gap:28px}
-.nav-links a{color:var(--text-muted);text-decoration:none;font-size:.88rem;transition:color .2s}
-.nav-links a:hover{color:var(--text)}
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(13,17,23,.94);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 60px;display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--green);text-decoration:none;display:flex;align-items:center;gap:10px}
+.nav-logo span{color:var(--text-muted);font-size:.79rem;font-family:'Fira Code',monospace}
+.nav-tag{font-family:'Fira Code',monospace;font-size:.67rem;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.18);color:var(--green);padding:3px 10px;border-radius:20px}
 
 /* HERO */
-.hero{padding:96px 60px 76px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 700px 450px at 15% 60%,rgba(74,222,128,.05) 0%,transparent 70%),radial-gradient(ellipse 500px 350px at 85% 20%,rgba(96,165,250,.04) 0%,transparent 70%);pointer-events:none}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);color:var(--green);font-family:'Fira Code',monospace;font-size:.73rem;padding:5px 14px;border-radius:20px;margin-bottom:28px}
+.hero{padding:88px 60px 70px;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 600px 400px at 12% 55%,rgba(74,222,128,.05) 0%,transparent 70%),radial-gradient(ellipse 400px 280px at 88% 18%,rgba(96,165,250,.04) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(74,222,128,.07);border:1px solid rgba(74,222,128,.18);color:var(--green);font-family:'Fira Code',monospace;font-size:.72rem;padding:5px 14px;border-radius:20px;margin-bottom:24px}
 .hero-eyebrow::before{content:'◉';animation:blink 2s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;line-height:1.1;color:#fff;max-width:680px;margin-bottom:22px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.1;color:#fff;max-width:660px;margin-bottom:18px}
 .hero h1 em{color:var(--green);font-style:normal}
-.hero p{font-size:1.1rem;color:var(--text-dim);max-width:540px;line-height:1.65;margin-bottom:44px}
-.hero-stats{display:flex;gap:48px;flex-wrap:wrap}
-.stat{display:flex;flex-direction:column;gap:3px}
-.stat .val{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--green)}
-.stat .key{font-size:.73rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em}
+.hero p{font-size:1.05rem;color:var(--text-dim);max-width:520px;line-height:1.65;margin-bottom:40px}
+.hero-stats{display:flex;gap:44px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat .val{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--green)}
+.stat .key{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em}
 
-/* SECTION */
-section{padding:76px 60px}
+/* COURSES */
+section{padding:68px 60px}
 section+section{border-top:1px solid var(--border)}
-.sec-label{font-family:'Fira Code',monospace;font-size:.7rem;color:var(--green);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
-.sec-title{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:#fff;margin-bottom:8px}
-.sec-sub{font-size:.92rem;color:var(--text-muted);margin-bottom:44px;max-width:520px}
+.sec-label{font-family:'Fira Code',monospace;font-size:.68rem;color:var(--green);letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px}
+.sec-title{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700;color:#fff;margin-bottom:6px}
+.sec-desc{color:var(--text-muted);font-size:.92rem;max-width:500px;line-height:1.55;margin-bottom:36px}
 
-/* COURSE GRID */
-.course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px}
-.course-card{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:26px;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:border-color .25s,transform .25s,box-shadow .25s;position:relative;overflow:hidden}
-.course-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .3s}
-.course-card:not(.card-soon):hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(0,0,0,.5)}
-.course-card:not(.card-soon):hover::after{opacity:1}
-.c-green::after{background:linear-gradient(90deg,var(--green-dim),var(--green))}
-.c-blue::after{background:linear-gradient(90deg,#1d4ed8,var(--blue))}
-.c-gold::after{background:linear-gradient(90deg,#92400e,var(--gold))}
-.c-red::after{background:linear-gradient(90deg,#991b1b,var(--red))}
-.c-purple::after{background:linear-gradient(90deg,#6b21a8,var(--purple))}
-.c-orange::after{background:linear-gradient(90deg,#9a3412,var(--orange))}
-.c-green:not(.card-soon):hover{border-color:rgba(74,222,128,.4)}
-.c-blue:not(.card-soon):hover{border-color:rgba(96,165,250,.35)}
-.c-gold:not(.card-soon):hover{border-color:rgba(251,191,36,.35)}
-.c-red:not(.card-soon):hover{border-color:rgba(248,113,113,.35)}
-.c-purple:not(.card-soon):hover{border-color:rgba(192,132,252,.35)}
-.c-orange:not(.card-soon):hover{border-color:rgba(251,146,60,.35)}
-.card-soon{opacity:.5;pointer-events:none}
-.card-icon{font-size:2rem;margin-bottom:14px;line-height:1}
-.card-cat{font-family:'Fira Code',monospace;font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
-.c-green .card-cat{color:var(--green-dim)} .c-blue .card-cat{color:#3b82f6} .c-gold .card-cat{color:#d97706}
-.c-red .card-cat{color:#ef4444} .c-purple .card-cat{color:#9333ea} .c-orange .card-cat{color:#ea580c}
-.card-title{font-family:'Playfair Display',serif;font-size:1.18rem;font-weight:700;color:#fff;margin-bottom:9px;line-height:1.3}
-.card-desc{font-size:.86rem;color:var(--text-muted);line-height:1.55;flex:1;margin-bottom:18px}
-.card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}
-.tag{font-size:.67rem;font-family:'Fira Code',monospace;padding:2px 8px;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:3px;color:var(--text-muted)}
-.card-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
-.card-badges{display:flex;gap:10px}
-.badge{font-family:'Fira Code',monospace;font-size:.68rem;padding:3px 9px;border-radius:4px;background:rgba(255,255,255,.04);color:var(--text-muted);border:1px solid var(--border)}
-.status{font-size:.72rem;font-family:'Fira Code',monospace;display:flex;align-items:center;gap:5px}
-.s-ready{color:var(--green)} .s-soon{color:var(--text-muted)}
-.dot{width:7px;height:7px;border-radius:50%}
-.dot-ready{background:var(--green)} .dot-soon{background:var(--border)}
+/* COURSE CARD */
+.course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px;max-width:1100px}
+.course-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;position:relative}
+.course-card:not(.card-soon):hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.card-soon{opacity:.55;cursor:default}
+.card-accent{height:4px}
+.c-green .card-accent{background:linear-gradient(90deg,var(--green-dim),var(--green))}
+.c-purple .card-accent{background:linear-gradient(90deg,#5b2d9a,var(--purple))}
+.c-gold .card-accent{background:linear-gradient(90deg,#b45309,var(--gold))}
+.c-green:not(.card-soon):hover{border-color:var(--green-dim)}
+.c-purple:not(.card-soon):hover{border-color:#5b2d9a}
+.c-gold:not(.card-soon):hover{border-color:#b45309}
+.card-body{padding:22px 24px 24px}
+.card-icon{font-size:2rem;margin-bottom:12px}
+.card-status{font-family:'Fira Code',monospace;font-size:.66rem;padding:3px 9px;border-radius:12px;display:inline-block;margin-bottom:10px}
+.status-ready{background:rgba(74,222,128,.1);color:var(--green);border:1px solid rgba(74,222,128,.25)}
+.status-soon{background:rgba(100,116,139,.08);color:var(--text-muted);border:1px solid rgba(100,116,139,.15)}
+.card-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:6px;line-height:1.2}
+.card-desc{font-size:.84rem;color:var(--text-muted);line-height:1.55;margin-bottom:18px}
+.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.card-tag{font-family:'Fira Code',monospace;font-size:.63rem;padding:2px 8px;border-radius:3px;background:rgba(255,255,255,.04);color:var(--text-muted);border:1px solid var(--border)}
 
-footer{border-top:1px solid var(--border);padding:36px 60px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-.footer-logo{font-family:'Playfair Display',serif;color:var(--green);font-size:1rem}
-.footer-note{font-size:.78rem;color:var(--text-muted);font-family:'Fira Code',monospace}
+/* PARTS inside card */
+.card-parts{display:flex;flex-direction:column;gap:8px}
+.part-link{display:flex;align-items:center;justify-content:space-between;text-decoration:none;padding:10px 13px;border-radius:7px;border:1px solid var(--border);background:rgba(255,255,255,.02);transition:all .2s}
+.part-link:hover{border-color:var(--green-dim);background:rgba(74,222,128,.04)}
+.part-left{display:flex;flex-direction:column;gap:2px}
+.part-name{font-size:.84rem;font-weight:600;color:var(--text)}
+.part-sub{font-size:.72rem;color:var(--text-muted);font-family:'Fira Code',monospace}
+.part-arrow{color:var(--green);font-size:.85rem;opacity:.6;transition:opacity .2s}
+.part-link:hover .part-arrow{opacity:1}
+.part-link.p2{border-color:rgba(192,132,252,.2)}
+.part-link.p2:hover{border-color:var(--purple);background:rgba(192,132,252,.04)}
+.part-link.p2 .part-arrow{color:var(--purple)}
+.card-btn{display:block;text-decoration:none;text-align:center;padding:10px;border-radius:7px;font-size:.85rem;font-weight:600;border:1px solid;transition:all .2s}
+.btn-green{color:var(--green);border-color:var(--green-dim);background:rgba(74,222,128,.06)}
+.btn-green:hover{background:rgba(74,222,128,.12)}
+.soon-badge{position:absolute;top:18px;right:16px;font-family:'Fira Code',monospace;font-size:.64rem;background:rgba(100,116,139,.1);color:var(--text-muted);border:1px solid var(--border);padding:3px 8px;border-radius:20px}
 
-@media(max-width:720px){
-  nav{padding:0 20px} .nav-links{display:none}
-  .hero,section,footer{padding-left:20px;padding-right:20px}
-  .hero h1{font-size:2rem} .hero-stats{gap:24px}
-  .path-wrap{grid-template-columns:repeat(2,1fr)}
-  .path-item:nth-child(2n){border-right:none} .path-item:nth-child(4n){border-right:none}
-  .path-item:nth-last-child(-n+4){border-bottom:1px solid var(--border)}
-  .path-item:nth-last-child(-n+2){border-bottom:none}
-}
+/* WHY CP */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;max-width:900px;margin-top:28px}
+.why-card{background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:18px;transition:border-color .2s}
+.why-card:hover{border-color:var(--green-dim)}
+.why-icon{font-size:1.6rem;margin-bottom:10px}
+.why-title{font-family:'Fira Code',monospace;font-size:.8rem;color:var(--green);margin-bottom:5px}
+.why-desc{font-size:.82rem;color:var(--text-muted);line-height:1.5}
+
+/* REFS */
+.ref-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.ref-link{display:flex;align-items:center;gap:7px;text-decoration:none;color:var(--text-muted);font-family:'Fira Code',monospace;font-size:.77rem;border:1px solid var(--border);padding:7px 13px;border-radius:6px;background:var(--bg2);transition:all .2s}
+.ref-link:hover{color:var(--green);border-color:var(--green-dim);background:rgba(74,222,128,.04)}
+
+footer{border-top:1px solid var(--border);padding:32px 60px;text-align:center;color:var(--text-muted);font-size:.8rem}
+footer a{color:var(--green-dim);text-decoration:none}
+footer a:hover{color:var(--green)}
+
+code{color:var(--green);background:rgba(74,222,128,.09);padding:1px 5px;border-radius:3px;font-family:'Fira Code',monospace;font-size:.85em}
+
+@media(max-width:768px){nav,.hero,section,footer{padding-left:24px;padding-right:24px}.hero h1{font-size:2rem}.course-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">🌿 DSA Thai <span>/ C++</span></a>
-  <div class="nav-links">
-    <a href="#courses">บทเรียน</a>
-    <a href="https://www.geeksforgeeks.org/dsa/dsa-tutorial-learn-data-structures-and-algorithms/" target="_blank">GFG ↗</a>
-    <a href="https://www.programiz.com/dsa" target="_blank">Programiz ↗</a>
-  </div>
+  <a class="nav-logo" href="index.html">🌿 TOI UBU <span>by dNSCoder : Wana Sinhash</span></a>
+  <span class="nav-tag">C++ · GFG · USACO · Olympiad</span>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow">Data Structures &amp; Algorithms · C++</div>
-  <h1>เรียน <em>DSA</em> ให้เข้าใจจริง<br>ด้วย C++</h1>
-  <p>บทเรียนแบบ Interactive พร้อม Diagram และ Code C++ — ครอบคลุม Tree, Graph และ Complexity Analysis</p>
+  <div class="hero-eyebrow">บทเรียน DSA สำหรับ Computer Olympiad</div>
+  <h1>เรียน <em>Data Structures</em><br>&amp; Algorithms ด้วย C++</h1>
+  <p>บทเรียนเน้น CP style ตั้งแต่ต้น — adjacency list, STL-driven, สำหรับ Olympiad และ Competitive Programming</p>
   <div class="hero-stats">
-    <div class="stat"><span class="val">3</span><span class="key">บทเรียน</span></div>
+    <div class="stat"><span class="val">3</span><span class="key">หัวข้อ</span></div>
     <div class="stat"><span class="val">C++</span><span class="key">ภาษาหลัก</span></div>
-    <div class="stat"><span class="val">GFG</span><span class="key">+ Programiz</span></div>
+    <div class="stat"><span class="val">CP</span><span class="key">Focused</span></div>
   </div>
 </div>
 
 <!-- COURSES -->
 <section id="courses">
-  <div class="sec-label">📚 บทเรียนทั้งหมด</div>
-  <div class="sec-title">เลือกบทที่ต้องการเรียน</div>
-  <div class="sec-sub">อิง Curriculum จาก GeeksforGeeks และ Programiz</div>
+  <div class="sec-label">บทเรียน</div>
+  <div class="sec-title">เลือกเรียน</div>
+  <p class="sec-desc">แต่ละหัวข้อแบ่งเป็น 2 Part — ทฤษฎีและ CP Implementation แยกชัดเจน</p>
 
   <div class="course-grid">
 
-    <!-- TREE — READY -->
-    <a href="tree-dsa-lesson.html" class="course-card c-green">
-      <div class="card-icon">🌳</div>
-      <div class="card-cat">Tree Based DSA · Part I</div>
-      <div class="card-title">Tree Data Structure</div>
-      <div class="card-desc">พื้นฐาน Tree ตั้งแต่ Terminology, Traversal ทุกรูปแบบ, ประเภทต่างๆ ของ Binary Tree จนถึง BST และ AVL Tree พร้อม Interactive Demo</div>
-      <div class="card-tags">
-        <span class="tag">Tree Basics</span><span class="tag">Traversal</span>
-        <span class="tag">Binary Tree</span><span class="tag">BST</span><span class="tag">AVL Tree</span>
-      </div>
-      <div class="card-foot">
-        <div class="card-badges"><span class="badge">⏱ 3 ชั่วโมง</span><span class="badge">10 บท</span></div>
-        <div class="status s-ready"><span class="dot dot-ready"></span>พร้อมเรียน</div>
-      </div>
-    </a>
-
-    <!-- GRAPH — SOON -->
-    <div class="course-card c-purple card-soon">
-      <div class="card-icon">🕸</div>
-      <div class="card-cat">Graph DSA</div>
-      <div class="card-title">Graph &amp; Shortest Path</div>
-      <div class="card-desc">Graph Representation, BFS, DFS, Dijkstra, Bellman-Ford, Topological Sort และ MST (Kruskal, Prim)</div>
-      <div class="card-tags">
-        <span class="tag">BFS/DFS</span><span class="tag">Dijkstra</span>
-        <span class="tag">Topo Sort</span><span class="tag">MST</span>
-      </div>
-      <div class="card-foot">
-        <div class="card-badges"><span class="badge">⏱ ~4 ชั่วโมง</span></div>
-        <div class="status s-soon"><span class="dot dot-soon"></span>เร็วๆ นี้</div>
+    <!-- TREE -->
+    <div class="course-card c-green">
+      <div class="card-accent"></div>
+      <div class="card-body">
+        <div class="card-icon">🌳</div>
+        <span class="card-status status-ready">พร้อมเรียน</span>
+        <div class="card-title">Tree Data Structure</div>
+        <p class="card-desc">จาก terminology สู่ adjacency list, DFS/BFS, subtree, และ set/map</p>
+        <div class="card-tags">
+          <span class="card-tag">N-ary Tree</span>
+          <span class="card-tag">BST</span>
+          <span class="card-tag">Traversal</span>
+          <span class="card-tag">adj list</span>
+        </div>
+        <div class="card-parts">
+          <a class="part-link" href="tree-dsa-lesson.html">
+            <div class="part-left">
+              <span class="part-name">Part 1 — ทฤษฎี</span>
+              <span class="part-sub">Concept · Terminology · Traversal · set/map</span>
+            </div>
+            <span class="part-arrow">→</span>
+          </a>
+          <a class="part-link p2" href="tree-cp-lesson.html">
+            <div class="part-left">
+              <span class="part-name">Part 2 — CP Implementation</span>
+              <span class="part-sub">adj list · DFS · BFS · Input Pattern</span>
+            </div>
+            <span class="part-arrow">→</span>
+          </a>
+        </div>
       </div>
     </div>
 
-    <!-- COMPLEXITY — SOON -->
-    <div class="course-card c-gold card-soon">
-      <div class="card-icon">📈</div>
-      <div class="card-cat">Algorithms · Analysis</div>
-      <div class="card-title">Complexity Analysis</div>
-      <div class="card-desc">วิเคราะห์ความซับซ้อนของ Algorithm ตั้งแต่ Big-O notation, O(1) ถึง O(n²) พร้อมเปรียบเทียบ Graph และตัวอย่างจาก DSA จริง</div>
-      <div class="card-tags">
-        <span class="tag">Big-O</span><span class="tag">O(log n)</span>
-        <span class="tag">O(n log n)</span><span class="tag">O(n²)</span>
+    <!-- GRAPH -->
+    <div class="course-card c-purple card-soon">
+      <div class="card-accent"></div>
+      <span class="soon-badge">เร็วๆ นี้</span>
+      <div class="card-body">
+        <div class="card-icon">🕸</div>
+        <span class="card-status status-soon">กำลังพัฒนา</span>
+        <div class="card-title">Graph &amp; Shortest Path</div>
+        <p class="card-desc">Dijkstra, BFS shortest path, และ Graph representation แบบ CP</p>
+        <div class="card-tags">
+          <span class="card-tag">Dijkstra</span>
+          <span class="card-tag">BFS</span>
+          <span class="card-tag">Weighted</span>
+          <span class="card-tag">priority_queue</span>
+        </div>
       </div>
-      <div class="card-foot">
-        <div class="card-badges"><span class="badge">⏱ ~2 ชั่วโมง</span></div>
-        <div class="status s-soon"><span class="dot dot-soon"></span>เร็วๆ นี้</div>
+    </div>
+
+    <!-- COMPLEXITY -->
+    <div class="course-card c-gold card-soon">
+      <div class="card-accent"></div>
+      <span class="soon-badge">เร็วๆ นี้</span>
+      <div class="card-body">
+        <div class="card-icon">📈</div>
+        <span class="card-status status-soon">กำลังพัฒนา</span>
+        <div class="card-title">Complexity Analysis</div>
+        <p class="card-desc">Big-O, O(log n), O(n log n), O(n²) — วิเคราะห์ time complexity เพื่อโจทย์ CP</p>
+        <div class="card-tags">
+          <span class="card-tag">Big-O</span>
+          <span class="card-tag">Space</span>
+          <span class="card-tag">Amortized</span>
+        </div>
       </div>
     </div>
 
   </div>
 </section>
 
+<!-- WHY CP STYLE -->
+<section>
+  <div class="sec-label">แนวทางการเรียน</div>
+  <div class="sec-title">ทำไมเน้น CP Style?</div>
+  <p class="sec-desc">โค้ดที่เขียนในบทเรียนนี้ใช้ได้จริงในโจทย์ Olympiad และ Competitive Programming</p>
 
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <div class="why-title">STL-Driven</div>
+      <div class="why-desc">ใช้ <code>vector</code>, <code>queue</code>, <code>set</code>, <code>map</code> แทนเขียน struct เอง — เร็วกว่า ปลอดภัยกว่า</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📥</div>
+      <div class="why-title">Input Pattern</div>
+      <div class="why-desc">สอน pattern การอ่าน <code>n, n-1 edges</code> เข้า adjacency list ตรงๆ เหมือนโจทย์จริง</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏅</div>
+      <div class="why-title">Olympiad Ready</div>
+      <div class="why-desc">concept ชัด เขียนได้จริงสด อธิบาย complexity ได้ — ตรง pattern โจทย์ Computer Olympiad</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📚</div>
+      <div class="why-title">อ้างอิงจริง</div>
+      <div class="why-desc">GFG, Programiz, cp-algorithms.com, USACO Guide — source ที่คนใช้ใน CP จริง</div>
+    </div>
+  </div>
+</section>
+
+<!-- REFS -->
+<section>
+  <div class="sec-label">แหล่งอ้างอิง</div>
+  <div class="sec-title">References</div>
+  <p class="sec-desc">บทเรียนนี้รวบรวมจาก sources ที่ใช้ใน CP community จริง</p>
+  <div class="ref-list">
+    <a class="ref-link" href="https://www.geeksforgeeks.org/dsa/" target="_blank">📗 GeeksforGeeks DSA</a>
+    <a class="ref-link" href="https://www.programiz.com/dsa" target="_blank">📘 Programiz DSA</a>
+    <a class="ref-link" href="https://cp-algorithms.com/" target="_blank">⚔️ cp-algorithms.com</a>
+    <a class="ref-link" href="https://usaco.guide/" target="_blank">🐄 USACO Guide</a>
+    <a class="ref-link" href="setup/vscode-cpp.md" target="_blank">🛠 ติดตั้ง C++ + VSCode</a>
+  </div>
+</section>
 
 <footer>
-  <div class="footer-logo">🌿 DSA Thai · C++</div>
-  <div class="footer-note">อ้างอิง: geeksforgeeks.org/dsa · programiz.com/dsa</div>
+  <p>อ้างอิง: <a href="https://www.geeksforgeeks.org/dsa/" target="_blank">GFG</a> · <a href="https://www.programiz.com/dsa" target="_blank">Programiz</a> · <a href="https://cp-algorithms.com/" target="_blank">cp-algorithms</a> · <a href="https://usaco.guide/" target="_blank">USACO Guide</a></p>
+  <p style="margin-top:6px">TOI UBU by dNSCoder : Wana Sinhash — สำหรับ Computer Olympiad และ Competitive Programming</p>
 </footer>
+
 </body>
 </html>
