@@ -5,44 +5,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TOI UBU — บทเรียน DSA สำหรับ Computer Olympiad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f9fafb;--bg2:#ffffff;--border:#e5e7eb;
-  --green:#16a34a;--green-dim:#bbf7d0;--green-bright:#15803d;
-  --gold:#b45309;--blue:#1d4ed8;--red:#dc2626;--purple:#7c3aed;
-  --text:#111827;--text-dim:#374151;--text-muted:#6b7280;
+  --green:#16a34a;--green-dim:#dcfce7;--green-bright:#15803d;
+  --gold:#d97706;--blue:#2563eb;--red:#dc2626;--purple:#7c3aed;
+  --text:#111827;--text-dim:#374151;--text-muted:#9ca3af;
   --accent-bg:#f0fdf4;--accent-border:#bbf7d0;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',sans-serif;min-height:100vh;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:'Kanit',sans-serif;min-height:100vh;font-size:16px}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:50;background:rgba(249,250,251,.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 60px;display:flex;align-items:center;justify-content:space-between;height:62px;box-shadow:0 1px 4px rgba(0,0,0,.05)}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--green-bright);text-decoration:none;display:flex;align-items:center;gap:10px;font-weight:700}
+.nav-logo{font-family:'Kanit',sans-serif;font-size:1.05rem;color:var(--green-bright);text-decoration:none;display:flex;align-items:center;gap:10px;font-weight:700}
 .nav-logo span{color:var(--text-muted);font-size:.78rem;font-family:'Fira Code',monospace;font-weight:400}
 .nav-tag{font-family:'Fira Code',monospace;font-size:.68rem;background:var(--accent-bg);border:1px solid var(--accent-border);color:var(--green-bright);padding:3px 11px;border-radius:20px}
 
 /* HERO */
-.hero{padding:84px 60px 68px;position:relative;overflow:hidden;border-bottom:2px solid var(--accent-border);background:linear-gradient(135deg,#f0fdf4 0%,#ecfdf5 50%,#f0f9ff 100%)}
+.hero{padding:80px 60px 64px;position:relative;overflow:hidden;border-bottom:2px solid var(--accent-border);background:var(--accent-bg)}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 500px 350px at 10% 60%,rgba(22,163,74,.06) 0%,transparent 70%),radial-gradient(ellipse 350px 250px at 90% 15%,rgba(29,78,216,.04) 0%,transparent 70%);pointer-events:none}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--accent-border);color:var(--green-bright);font-family:'Fira Code',monospace;font-size:.74rem;padding:5px 14px;border-radius:20px;margin-bottom:24px;box-shadow:0 1px 4px rgba(22,163,74,.1)}
 .hero-eyebrow::before{content:'◉';animation:blink 2s ease-in-out infinite;color:var(--green)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;line-height:1.1;color:#064e3b;max-width:660px;margin-bottom:18px}
+.hero h1{font-family:'Kanit',sans-serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;line-height:1.1;color:var(--text);max-width:660px;margin-bottom:16px}
 .hero h1 em{color:var(--green);font-style:normal}
 .hero p{font-size:1.05rem;color:var(--text-dim);max-width:520px;line-height:1.65;margin-bottom:40px}
 .hero-stats{display:flex;gap:44px;flex-wrap:wrap}
 .stat{display:flex;flex-direction:column;gap:2px}
-.stat .val{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--green-bright)}
+.stat .val{font-family:'Kanit',sans-serif;font-size:1.9rem;font-weight:700;color:var(--green-bright)}
 .stat .key{font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em}
 
 /* COURSES */
 section{padding:64px 60px}
 section+section{border-top:2px solid var(--border)}
 .sec-label{font-family:'Fira Code',monospace;font-size:.69rem;color:var(--green-bright);letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px;font-weight:700}
-.sec-title{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:#064e3b;margin-bottom:6px}
+.sec-title{font-family:'Kanit',sans-serif;font-size:1.75rem;font-weight:900;color:var(--text);margin-bottom:6px}
 .sec-desc{color:var(--text-muted);font-size:.94rem;max-width:500px;line-height:1.55;margin-bottom:36px}
 
 /* COURSE CARD */
@@ -62,7 +62,7 @@ section+section{border-top:2px solid var(--border)}
 .card-status{font-family:'Fira Code',monospace;font-size:.67rem;padding:3px 10px;border-radius:12px;display:inline-block;margin-bottom:10px;font-weight:600}
 .status-ready{background:var(--accent-bg);color:var(--green-bright);border:1px solid var(--accent-border)}
 .status-soon{background:#f3f4f6;color:var(--text-muted);border:1px solid var(--border)}
-.card-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.2}
+.card-title{font-family:'Kanit',sans-serif;font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:6px;line-height:1.2}
 .card-desc{font-size:.85rem;color:var(--text-muted);line-height:1.55;margin-bottom:18px}
 .card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
 .card-tag{font-family:'Fira Code',monospace;font-size:.64rem;padding:2px 8px;border-radius:4px;background:var(--bg);color:var(--text-muted);border:1px solid var(--border)}
@@ -92,7 +92,7 @@ section+section{border-top:2px solid var(--border)}
 .ref-link{display:flex;align-items:center;gap:7px;text-decoration:none;color:var(--text-dim);font-family:'Fira Code',monospace;font-size:.78rem;border:1px solid var(--border);padding:8px 14px;border-radius:7px;background:var(--bg2);transition:all .2s;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .ref-link:hover{color:var(--green-bright);border-color:var(--green);background:var(--accent-bg);box-shadow:0 2px 8px rgba(22,163,74,.1)}
 
-footer{border-top:2px solid var(--border);padding:32px 60px;text-align:center;color:var(--text-muted);font-size:.82rem;background:#fff}
+footer{border-top:2px solid var(--border);padding:32px 60px;text-align:center;color:var(--text-muted);font-size:.82rem;background:var(--bg2);box-shadow:inset 0 1px 0 var(--border)}
 footer a{color:var(--green-bright);text-decoration:none}
 footer a:hover{text-decoration:underline}
 
