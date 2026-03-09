@@ -8,18 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0d1117;--bg2:#161b22;--bg3:#1e2b1e;--sidebar:#0e1510;
-  --border:#21262d;--border2:#2a3a2a;
-  --green:#4ade80;--green-dim:#2d6a4f;--green-bright:#6ee7b7;
-  --gold:#fbbf24;--blue:#60a5fa;--red:#f87171;--purple:#c084fc;
-  --text:#e2e8f0;--text-dim:#94a3b8;--text-muted:#64748b;
-  --code-bg:#0a1a0a;
+  --bg:#f9fafb;--bg2:#ffffff;--bg3:#f0fdf4;--sidebar:#ffffff;
+  --border:#e5e7eb;--border2:#d1fae5;
+  --green:#16a34a;--green-dim:#bbf7d0;--green-bright:#15803d;
+  --gold:#b45309;--blue:#1d4ed8;--red:#dc2626;--purple:#7c3aed;--orange:#c2410c;
+  --text:#111827;--text-dim:#374151;--text-muted:#6b7280;
+  --code-bg:#f8fafc;--code-border:#e2e8f0;
+  --accent-bg:#f0fdf4;--accent-border:#bbf7d0;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',sans-serif;line-height:1.7;display:flex;min-height:100vh}
 
-#sidebar{width:272px;min-height:100vh;background:var(--sidebar);border-right:1px solid var(--border2);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:100;padding-bottom:48px}
+#sidebar{width:280px;min-height:100vh;background:var(--sidebar);border-right:1px solid var(--border);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:100;padding-bottom:48px;box-shadow:2px 0 8px rgba(0,0,0,.04)}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:3px}
 .sb-top{padding:20px 20px 16px;border-bottom:1px solid var(--border2)}
 .sb-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text-muted);font-size:.78rem;font-family:'Fira Code',monospace;padding:6px 8px;border-radius:6px;border:1px solid var(--border2);margin-bottom:14px;transition:all .2s}
@@ -42,8 +43,8 @@ body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',sans-ser
 .sb-prev{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--green);font-size:.77rem;font-family:'Fira Code',monospace;margin:14px 16px 0;padding:9px 10px;border-radius:7px;border:1px solid var(--green-dim);background:rgba(74,222,128,.04);transition:all .2s}
 .sb-prev:hover{background:rgba(74,222,128,.09);border-color:var(--green)}
 
-#main{margin-left:272px;flex:1;padding-bottom:100px}
-.hero{background:linear-gradient(140deg,#130c1f 0%,#0d1117 60%);border-bottom:1px solid var(--border);padding:60px 68px 48px;position:relative;overflow:hidden}
+#main{margin-left:280px;flex:1;padding-bottom:100px}
+.hero{background:linear-gradient(135deg,#faf5ff 0%,#f5f3ff 50%,#f0fdf4 100%);border-bottom:2px solid #ddd6fe;padding:60px 68px 48px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-60px;right:-60px;width:380px;height:380px;background:radial-gradient(circle,rgba(192,132,252,.07) 0%,transparent 68%);pointer-events:none}
 .hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
 .hero-tag{font-family:'Fira Code',monospace;font-size:.71rem;padding:3px 11px;border-radius:4px}

@@ -9,8 +9,7 @@
 //            node_basic.exe        (Windows)
 // ─────────────────────────────────────────────────────────
 
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 // ─── Generic Tree Node (N-ary) ───────────────────────────
