@@ -108,7 +108,7 @@ code{color:var(--green);background:rgba(74,222,128,.09);padding:1px 5px;border-r
 /* TABS */
 .tab-group{display:flex;gap:3px;background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:3px;margin-bottom:10px;max-width:420px;flex-wrap:wrap}
 .tab-btn{flex:1;min-width:80px;padding:6px 9px;border:none;border-radius:5px;background:transparent;color:var(--text-muted);font-family:'Fira Code',monospace;font-size:.74rem;cursor:pointer;transition:all .2s}
-.tab-btn.active{background:var(--green-dim);color:#fff}
+.tab-btn.active{background:var(--green-dim);color:var(--green-bright)}
 .tab-btn:hover:not(.active){color:var(--text)}
 .tab-content{display:none}.tab-content.active{display:block}
 
@@ -118,7 +118,7 @@ code{color:var(--green);background:rgba(74,222,128,.09);padding:1px 5px;border-r
 .step-card:hover{border-color:var(--green-dim)}
 .step-num{font-family:'Kanit',sans-serif;font-size:1.9rem;font-weight:900;color:rgba(74,222,128,.18);line-height:1;flex-shrink:0;min-width:30px}
 .step-body{flex:1}
-.step-title{font-weight:600;color:#fff;font-size:.93rem;margin-bottom:3px}
+.step-title{font-weight:600;color:var(--text);font-size:.93rem;margin-bottom:3px}
 .step-desc{font-size:.83rem;color:var(--text-muted);line-height:1.5;margin-bottom:8px}
 
 /* REPR GRID */
@@ -126,7 +126,7 @@ code{color:var(--green);background:rgba(74,222,128,.09);padding:1px 5px;border-r
 .repr-card{background:var(--bg2);border:1px solid var(--border);border-radius:9px;padding:16px;transition:border-color .2s,transform .2s}
 .repr-card:hover{transform:translateY(-2px)}
 .repr-card.rc-primary{border-color:var(--green-dim)}
-.repr-card h4{font-family:'Kanit',sans-serif;font-size:.93rem;color:#fff;margin-bottom:5px}
+.repr-card h4{font-family:'Kanit',sans-serif;font-size:.93rem;color:var(--text);margin-bottom:5px}
 .rc-tag{font-size:.64rem;font-family:'Fira Code',monospace;padding:2px 6px;border-radius:3px;display:inline-block;margin-bottom:8px}
 .rc-text{background:rgba(96,165,250,.1);color:var(--blue)}
 .rc-arr{background:rgba(251,191,36,.1);color:var(--gold)}
@@ -155,7 +155,61 @@ footer a:hover{color:var(--green)}
 .footer-next:hover{background:rgba(192,132,252,.11);border-color:var(--purple)}
 
 @media(max-width:820px){#sidebar{width:220px}#main{margin-left:220px}.ch,.hero,.notice-bar{padding-left:24px;padding-right:24px}}
-@media(max-width:620px){#sidebar{display:none}#main{margin-left:0}.compare-grid{grid-template-columns:1fr}}
+/* PROP LIST */
+.prop-list{display:flex;flex-direction:column;gap:10px;max-width:760px;margin:14px 0}
+.prop-item{background:#fff;border:1px solid var(--border);border-radius:9px;padding:14px 16px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.prop-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px}
+.prop-name{font-weight:700;color:var(--text);font-size:.95rem;margin-bottom:3px}
+.prop-desc{font-size:.86rem;color:var(--text-muted);line-height:1.55}
+/* TYPE GRID */
+.type-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;max-width:800px;margin:16px 0}
+.type-card{background:#fff;border:2px solid var(--border);border-radius:10px;overflow:hidden;transition:all .2s;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+.type-card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.08)}
+.type-card-hdr{padding:11px 15px 8px;border-bottom:1px solid var(--border)}
+.type-card-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--text)}
+.type-card-sub{font-size:.74rem;color:var(--text-muted);margin-top:2px}
+.type-card-body{padding:12px 15px}
+.type-card-body p{font-size:.84rem;color:var(--text-dim);margin:0 0 7px;line-height:1.6;max-width:none}
+.type-card-body ul{margin-left:16px;margin-bottom:0}
+.type-card-body li{font-size:.82rem;color:var(--text-muted);margin-bottom:3px}
+.tc-green .type-card-hdr{background:var(--accent-bg);border-color:var(--accent-border)}
+.tc-green .type-card-title{color:var(--green-bright)}
+.tc-blue .type-card-hdr{background:#eff6ff;border-color:#bfdbfe}
+.tc-blue .type-card-title{color:var(--blue)}
+.tc-purple .type-card-hdr{background:#faf5ff;border-color:#ddd6fe}
+.tc-purple .type-card-title{color:var(--purple)}
+/* APP GRID */
+.app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;max-width:820px;margin:14px 0}
+.app-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 15px;transition:box-shadow .2s}
+.app-card:hover{box-shadow:0 3px 12px rgba(0,0,0,.08)}
+.app-icon{font-size:1.5rem;margin-bottom:8px}
+.app-name{font-weight:700;font-size:.88rem;color:var(--text);margin-bottom:5px}
+.app-desc{font-size:.8rem;color:var(--text-muted);line-height:1.55}
+/* APP GRID (Binary Tree applications) */
+.app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;max-width:820px;margin:16px 0}
+.app-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;box-shadow:0 1px 4px rgba(0,0,0,.04);transition:all .2s}
+.app-card:hover{border-color:var(--green);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.app-icon{font-size:1.5rem;margin-bottom:7px}
+.app-name{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.app-desc{font-size:.82rem;color:var(--text-dim);line-height:1.55;margin-bottom:6px}
+.app-cp{font-family:'Fira Code',monospace;font-size:.72rem;color:var(--purple);background:#faf5ff;border-radius:4px;padding:3px 7px;display:inline-block}
+/* DIFF GRID (Tree vs Graph) */
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:720px;margin:16px 0}
+.diff-card{border-radius:10px;padding:16px;border:2px solid var(--border)}
+.diff-tree{background:var(--accent-bg);border-color:var(--accent-border)}
+.diff-graph{background:#f5f3ff;border-color:#ddd6fe}
+.diff-hdr{font-weight:700;font-size:1rem;margin-bottom:10px;color:var(--text)}
+.diff-card ul{margin-left:16px;padding:0}
+.diff-card li{font-size:.84rem;color:var(--text-dim);margin-bottom:5px;line-height:1.5}
+/* VIEW GRID (Rooted vs Unrooted) */
+.view-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:720px;margin:14px 0}
+.view-card{background:#fff;border:2px solid var(--border);border-radius:10px;padding:14px 16px}
+.view-badge{display:inline-block;font-family:'Fira Code',monospace;font-size:.7rem;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:7px}
+.vc-green{background:var(--accent-bg);color:var(--green-bright);border:1px solid var(--accent-border)}
+.vc-purple{background:#faf5ff;color:var(--purple);border:1px solid #ddd6fe}
+.view-name{font-weight:700;font-size:.95rem;color:var(--text);margin-bottom:5px}
+.view-desc{font-size:.83rem;color:var(--text-dim);line-height:1.55}
+@media(max-width:620px){#sidebar{display:none}#main{margin-left:0}.compare-grid{grid-template-columns:1fr}.diff-grid,.view-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -175,20 +229,22 @@ footer a:hover{color:var(--green)}
   <div class="ch-group">
     <div class="ch-label">Foundation</div>
     <a class="nav-item active" href="#ch1"><span class="nav-dot"></span>Tree คืออะไร?</a>
-    <a class="nav-item" href="#ch2"><span class="nav-dot"></span>Terminology</a>
+    <a class="nav-item" href="#ch2"><span class="nav-dot"></span>Terminology &amp; Properties</a>
+    <a class="nav-item" href="#ch3"><span class="nav-dot"></span>ประเภทของ Tree</a>
   </div>
   <div class="ch-group">
     <div class="ch-label">Traversal</div>
-    <a class="nav-item" href="#ch3"><span class="nav-dot"></span>แนวคิด Traversal</a>
+    <a class="nav-item" href="#ch4"><span class="nav-dot"></span>แนวคิด Traversal</a>
   </div>
   <div class="ch-group">
     <div class="ch-label">Implementation</div>
-    <a class="nav-item" href="#ch4"><span class="nav-dot"></span>Representation 3 แบบ</a>
-    <a class="nav-item" href="#ch5"><span class="nav-dot"></span>Basic Operations</a>
+    <a class="nav-item" href="#ch5"><span class="nav-dot"></span>Representation 3 แบบ</a>
+    <a class="nav-item" href="#ch6"><span class="nav-dot"></span>Basic Operations</a>
   </div>
   <div class="ch-group">
     <div class="ch-label">CP Insight</div>
-    <a class="nav-item" href="#ch6"><span class="nav-dot"></span>ข้อจำกัด &amp; set/map</a>
+    <a class="nav-item" href="#ch7"><span class="nav-dot"></span>ข้อจำกัด &amp; set/map</a>
+    <a class="nav-item" href="#ch8"><span class="nav-dot"></span>Tree vs Graph</a>
   </div>
 
   <div class="sb-prog">
@@ -210,7 +266,7 @@ footer a:hover{color:var(--green)}
   <h1>Tree Data<br><span>Structure</span></h1>
   <p class="hero-desc">เรียนรู้ Tree จาก concept สู่ implementation เน้นมุมมอง CP ตั้งแต่ต้น ก่อน implement จริงใน Part 2</p>
   <div class="hero-meta">
-    <div class="h-stat"><span class="v">6</span><span class="k">หัวข้อ</span></div>
+    <div class="h-stat"><span class="v">8</span><span class="k">หัวข้อ</span></div>
     <div class="h-stat"><span class="v">2h</span><span class="k">เวลาเรียน</span></div>
     <div class="h-stat"><span class="v">Theory</span><span class="k">เน้น concept</span></div>
   </div>
@@ -227,38 +283,38 @@ footer a:hover{color:var(--green)}
   <h2>Tree คืออะไร?</h2>
   <p class="ch-time">⏱ ~20 min</p>
 
-  <p>Tree คือโครงสร้างข้อมูลแบบ <strong style="color:#fff">Hierarchical</strong> — ข้อมูลจัดเป็นลำดับชั้นจากบนลงล่าง ต่างจาก Array ที่เรียงตรงๆ หรือ Graph ทั่วไปที่ไม่มีทิศทาง</p>
+  <p>Tree คือโครงสร้างข้อมูลแบบ <strong style="color:var(--text)">Hierarchical</strong> — ข้อมูลจัดเป็นลำดับชั้นจากบนลงล่าง ต่างจาก Array ที่เรียงตรงๆ หรือ Graph ทั่วไปที่ไม่มีทิศทาง</p>
 
   <div class="tree-dia">
     <svg width="400" height="230" viewBox="0 0 400 230">
-      <line x1="200" y1="50" x2="110" y2="115" stroke="#2d6a4f" stroke-width="2"/>
-      <line x1="200" y1="50" x2="200" y2="115" stroke="#2d6a4f" stroke-width="2"/>
-      <line x1="200" y1="50" x2="290" y2="115" stroke="#2d6a4f" stroke-width="2"/>
-      <line x1="110" y1="115" x2="65"  y2="185" stroke="#2d6a4f" stroke-width="1.5"/>
-      <line x1="110" y1="115" x2="148" y2="185" stroke="#2d6a4f" stroke-width="1.5"/>
-      <line x1="290" y1="115" x2="290" y2="185" stroke="#2d6a4f" stroke-width="1.5"/>
-      <circle cx="200" cy="50"  r="22" fill="#1a3d2b" stroke="#4ade80" stroke-width="2.5"/>
-      <text x="200" y="56"  text-anchor="middle" fill="#4ade80"  font-family="monospace" font-size="14" font-weight="bold">1</text>
-      <circle cx="110" cy="115" r="20" fill="#1a3d2b" stroke="#2d6a4f" stroke-width="2"/>
-      <text x="110" y="121" text-anchor="middle" fill="#6ee7b7" font-family="monospace" font-size="12">2</text>
-      <circle cx="200" cy="115" r="20" fill="#111d14" stroke="#2d6a4f" stroke-width="1.5"/>
-      <text x="200" y="121" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="12">3</text>
-      <circle cx="290" cy="115" r="20" fill="#1a3d2b" stroke="#2d6a4f" stroke-width="2"/>
-      <text x="290" y="121" text-anchor="middle" fill="#6ee7b7" font-family="monospace" font-size="12">4</text>
-      <circle cx="65"  cy="185" r="18" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-      <text x="65"  y="191" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="11">5</text>
-      <circle cx="148" cy="185" r="18" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-      <text x="148" y="191" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="11">6</text>
-      <circle cx="290" cy="185" r="18" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-      <text x="290" y="191" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="11">7</text>
+      <line x1="200" y1="50" x2="110" y2="115" stroke="#16a34a" stroke-width="2"/>
+      <line x1="200" y1="50" x2="200" y2="115" stroke="#16a34a" stroke-width="2"/>
+      <line x1="200" y1="50" x2="290" y2="115" stroke="#16a34a" stroke-width="2"/>
+      <line x1="110" y1="115" x2="65"  y2="185" stroke="#86efac" stroke-width="1.5"/>
+      <line x1="110" y1="115" x2="148" y2="185" stroke="#86efac" stroke-width="1.5"/>
+      <line x1="290" y1="115" x2="290" y2="185" stroke="#86efac" stroke-width="1.5"/>
+      <circle cx="200" cy="50"  r="22" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+      <text x="200" y="56"  text-anchor="middle" fill="#15803d" font-family="monospace" font-size="14" font-weight="bold">1</text>
+      <circle cx="110" cy="115" r="20" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+      <text x="110" y="121" text-anchor="middle" fill="#374151" font-family="monospace" font-size="12">2</text>
+      <circle cx="200" cy="115" r="20" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="200" y="121" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="12">3</text>
+      <circle cx="290" cy="115" r="20" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+      <text x="290" y="121" text-anchor="middle" fill="#374151" font-family="monospace" font-size="12">4</text>
+      <circle cx="65"  cy="185" r="18" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="65"  y="191" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">5</text>
+      <circle cx="148" cy="185" r="18" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="148" y="191" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">6</text>
+      <circle cx="290" cy="185" r="18" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="290" y="191" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">7</text>
       <text x="225" y="44"  fill="#fbbf24" font-family="monospace" font-size="9.5">Root</text>
-      <text x="308" y="192" fill="#94a3b8" font-family="monospace" font-size="9">Leaf</text>
-      <text x="160" y="192" fill="#94a3b8" font-family="monospace" font-size="9">Leaf</text>
-      <text x="30"  y="192" fill="#94a3b8" font-family="monospace" font-size="9">Leaf</text>
-      <text x="218" y="120" fill="#94a3b8" font-family="monospace" font-size="9">Leaf</text>
-      <text x="342" y="46"  fill="#64748b" font-family="monospace" font-size="9">7 nodes</text>
-      <text x="342" y="58"  fill="#64748b" font-family="monospace" font-size="9">6 edges</text>
-      <line x1="337" y1="65" x2="337" y2="195" stroke="#21262d" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="308" y="192" fill="#9ca3af" font-family="monospace" font-size="9">Leaf</text>
+      <text x="160" y="192" fill="#9ca3af" font-family="monospace" font-size="9">Leaf</text>
+      <text x="30"  y="192" fill="#9ca3af" font-family="monospace" font-size="9">Leaf</text>
+      <text x="218" y="120" fill="#9ca3af" font-family="monospace" font-size="9">Leaf</text>
+      <text x="342" y="46"  fill="#9ca3af" font-family="monospace" font-size="9">7 nodes</text>
+      <text x="342" y="58"  fill="#9ca3af" font-family="monospace" font-size="9">6 edges</text>
+      <line x1="337" y1="65" x2="337" y2="195" stroke="#d1d5db" stroke-width="1" stroke-dasharray="3,3"/>
     </svg>
   </div>
 
@@ -272,6 +328,26 @@ footer a:hover{color:var(--green)}
   </div>
   <p>โจทย์ CP มักให้ input เป็น <code>n</code> และ <code>n-1</code> edges แล้วให้เดิน DFS/BFS — ไม่ได้สร้าง struct Node ให้เลย</p>
 
+  <h3>🔍 Tree vs Graph — ข้อสังเกตสำคัญ</h3>
+  <p>Tree <strong>คือ Graph ประเภทหนึ่ง</strong> — แต่มีข้อจำกัดพิเศษที่ทำให้ code ง่ายขึ้นมาก:</p>
+
+  <table class="tbl">
+    <thead><tr><th>ลักษณะ</th><th style="color:var(--blue)">Graph ทั่วไป</th><th style="color:var(--green-bright)">Tree</th></tr></thead>
+    <tbody>
+      <tr><td>Cycle</td><td>มีได้</td><td>❌ ไม่มีเลย</td></tr>
+      <tr><td>การเชื่อมต่อ</td><td>อาจ disconnected</td><td>✅ ทุก node ถึงกันเสมอ</td></tr>
+      <tr><td>จำนวน edges</td><td>0 ถึง n(n-1)/2</td><td>✅ n−1 edges เสมอ</td></tr>
+      <tr><td>Path ระหว่าง 2 node</td><td>อาจมีหลายเส้น</td><td>✅ มีเส้นเดียวเสมอ</td></tr>
+      <tr><td>ต้องใช้ visited array?</td><td>✅ ต้องใช้</td><td>❌ ส่ง parent มาแทนได้</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 ผลที่ได้จากข้อจำกัดของ Tree</div>
+    <p>เพราะไม่มี cycle และมี unique path — DFS บน Tree ทำได้ง่ายกว่า Graph มาก<br>
+    แค่ส่ง <code>parent</code> มาป้องกันการเดินย้อน ไม่ต้องใช้ <code>visited[]</code> เลย</p>
+  </div>
+
   <h3>🌍 ตัวอย่าง Real-world</h3>
   <ul>
     <li>File system — โฟลเดอร์ → subfolders → files</li>
@@ -283,48 +359,48 @@ footer a:hover{color:var(--green)}
 <!-- CH2: TERMINOLOGY -->
 <section class="ch" id="ch2">
   <div class="ch-eyebrow">Chapter 02</div>
-  <h2>Terminology</h2>
-  <p class="ch-time">⏱ ~20 min · ต้องแม่น — โจทย์ CP และ Olympiad ใช้ตลอด</p>
+  <h2>Terminology &amp; Properties</h2>
+  <p class="ch-time">⏱ ~25 min · ต้องแม่น — โจทย์ CP และ Olympiad ใช้ตลอด</p>
 
   <div class="tree-dia">
     <svg width="560" height="265" viewBox="0 0 560 265">
-      <line x1="210" y1="50" x2="105" y2="122" stroke="#2d6a4f" stroke-width="2"/>
-      <line x1="210" y1="50" x2="210" y2="122" stroke="#2d6a4f" stroke-width="2"/>
-      <line x1="210" y1="50" x2="320" y2="122" stroke="#2d6a4f" stroke-width="2"/>
-      <line x1="105" y1="122" x2="55"  y2="200" stroke="#2d6a4f" stroke-width="1.5"/>
-      <line x1="105" y1="122" x2="145" y2="200" stroke="#2d6a4f" stroke-width="1.5"/>
-      <line x1="320" y1="122" x2="320" y2="200" stroke="#2d6a4f" stroke-width="1.5"/>
+      <line x1="210" y1="50" x2="105" y2="122" stroke="#16a34a" stroke-width="2"/>
+      <line x1="210" y1="50" x2="210" y2="122" stroke="#16a34a" stroke-width="2"/>
+      <line x1="210" y1="50" x2="320" y2="122" stroke="#16a34a" stroke-width="2"/>
+      <line x1="105" y1="122" x2="55"  y2="200" stroke="#86efac" stroke-width="1.5"/>
+      <line x1="105" y1="122" x2="145" y2="200" stroke="#86efac" stroke-width="1.5"/>
+      <line x1="320" y1="122" x2="320" y2="200" stroke="#86efac" stroke-width="1.5"/>
       <!-- subtree highlight -->
       <ellipse cx="105" cy="162" rx="73" ry="60" fill="rgba(74,222,128,.04)" stroke="rgba(74,222,128,.18)" stroke-width="1.5" stroke-dasharray="5,4"/>
       <text x="22" y="142" fill="rgba(74,222,128,.4)" font-family="monospace" font-size="9">subtree(2)</text>
       <!-- nodes -->
-      <circle cx="210" cy="50"  r="21" fill="#1a3d2b" stroke="#4ade80" stroke-width="2.5"/>
-      <text x="210" y="56"  text-anchor="middle" fill="#4ade80" font-family="monospace" font-size="13" font-weight="bold">1</text>
-      <circle cx="105" cy="122" r="20" fill="#1a3d2b" stroke="#2d6a4f" stroke-width="2"/>
-      <text x="105" y="128" text-anchor="middle" fill="#6ee7b7" font-family="monospace" font-size="12">2</text>
-      <circle cx="210" cy="122" r="20" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-      <text x="210" y="128" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="12">3</text>
-      <circle cx="320" cy="122" r="20" fill="#1a3d2b" stroke="#2d6a4f" stroke-width="2"/>
-      <text x="320" y="128" text-anchor="middle" fill="#6ee7b7" font-family="monospace" font-size="12">4</text>
-      <circle cx="55"  cy="200" r="18" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-      <text x="55"  y="206" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="11">5</text>
-      <circle cx="145" cy="200" r="18" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-      <text x="145" y="206" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="11">6</text>
-      <circle cx="320" cy="200" r="18" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-      <text x="320" y="206" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="11">7</text>
+      <circle cx="210" cy="50"  r="21" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+      <text x="210" y="56"  text-anchor="middle" fill="#15803d" font-family="monospace" font-size="13" font-weight="bold">1</text>
+      <circle cx="105" cy="122" r="20" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+      <text x="105" y="128" text-anchor="middle" fill="#374151" font-family="monospace" font-size="12">2</text>
+      <circle cx="210" cy="122" r="20" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="210" y="128" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="12">3</text>
+      <circle cx="320" cy="122" r="20" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+      <text x="320" y="128" text-anchor="middle" fill="#374151" font-family="monospace" font-size="12">4</text>
+      <circle cx="55"  cy="200" r="18" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="55"  y="206" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">5</text>
+      <circle cx="145" cy="200" r="18" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="145" y="206" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">6</text>
+      <circle cx="320" cy="200" r="18" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="320" y="206" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">7</text>
       <!-- labels -->
       <text x="234" y="44"  fill="#fbbf24" font-family="monospace" font-size="9.5">Root</text>
-      <text x="338" y="207" fill="#94a3b8" font-family="monospace" font-size="9">Leaf</text>
-      <text x="163" y="207" fill="#94a3b8" font-family="monospace" font-size="9">Leaf</text>
-      <text x="26"  y="207" fill="#94a3b8" font-family="monospace" font-size="9">Leaf</text>
-      <text x="228" y="127" fill="#94a3b8" font-family="monospace" font-size="9">Leaf</text>
+      <text x="338" y="207" fill="#9ca3af" font-family="monospace" font-size="9">Leaf</text>
+      <text x="163" y="207" fill="#9ca3af" font-family="monospace" font-size="9">Leaf</text>
+      <text x="26"  y="207" fill="#9ca3af" font-family="monospace" font-size="9">Leaf</text>
+      <text x="228" y="127" fill="#9ca3af" font-family="monospace" font-size="9">Leaf</text>
       <!-- depth lines -->
-      <text x="460" y="40"  fill="#64748b" font-family="monospace" font-size="9">depth = 0</text>
-      <text x="460" y="112" fill="#64748b" font-family="monospace" font-size="9">depth = 1</text>
-      <text x="460" y="192" fill="#64748b" font-family="monospace" font-size="9">depth = 2</text>
-      <line x1="453" y1="46" x2="453" y2="205" stroke="#21262d" stroke-width="1" stroke-dasharray="3,3"/>
-      <text x="460" y="238" fill="#4ade80" font-family="monospace" font-size="9">height(1) = 2</text>
-      <text x="460" y="250" fill="#64748b" font-family="monospace" font-size="9">height(3) = 0</text>
+      <text x="460" y="40"  fill="#9ca3af" font-family="monospace" font-size="9">depth = 0</text>
+      <text x="460" y="112" fill="#9ca3af" font-family="monospace" font-size="9">depth = 1</text>
+      <text x="460" y="192" fill="#9ca3af" font-family="monospace" font-size="9">depth = 2</text>
+      <line x1="453" y1="46" x2="453" y2="205" stroke="#d1d5db" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="460" y="238" fill="#15803d" font-family="monospace" font-size="9">height(1) = 2</text>
+      <text x="460" y="250" fill="#9ca3af" font-family="monospace" font-size="9">height(3) = 0</text>
       <!-- sibling -->
       <path d="M55,218 Q100,238 145,218" fill="none" stroke="#60a5fa" stroke-width="1" opacity=".5"/>
       <text x="78" y="252" fill="#60a5fa" font-family="monospace" font-size="9">siblings</text>
@@ -341,15 +417,148 @@ footer a:hover{color:var(--green)}
     <div class="term-card"><div class="term-name">Subtree</div><div class="term-desc">node + ทุก descendant — subtree(2) = {2,5,6}</div></div>
     <div class="term-card"><div class="term-name">Degree</div><div class="term-desc">จำนวน children — degree(1) = 3, degree(leaf) = 0</div></div>
     <div class="term-card"><div class="term-name">Ancestor</div><div class="term-desc">ทุก node บนเส้น root→node — ancestor(5) = {1,2}</div></div>
+    <div class="term-card"><div class="term-name">Descendant</div><div class="term-desc">node ที่อยู่ "ใต้" node นั้น — descendant(2) = {5,6}</div></div>
+    <div class="term-card"><div class="term-name">Path</div><div class="term-desc">ลำดับ node ตาม edge — path(1→5) = 1, 2, 5 (ยาว 2 edge)</div></div>
     <div class="term-card"><div class="term-name">Internal Node</div><div class="term-desc">มีลูกอย่างน้อย 1 ตัว — 1, 2, 4</div></div>
-    <div class="term-card"><div class="term-name">Level</div><div class="term-desc">= depth (บางตำราเริ่มจาก 1 ระวังด้วย)</div></div>
-    <div class="term-card"><div class="term-name">n nodes</div><div class="term-desc">n−1 edges เสมอ → 7 nodes = 6 edges</div></div>
+    <div class="term-card"><div class="term-name">Level</div><div class="term-desc">= depth + 1 (บางตำราเริ่มจาก 1 — ระวังด้วย)</div></div>
+    <div class="term-card"><div class="term-name">n nodes → n−1 edges</div><div class="term-desc">สมบัติหลักของ Tree — 7 nodes = 6 edges เสมอ</div></div>
+  </div>
+
+  <h3>📐 Properties สำคัญ</h3>
+  <div class="prop-list">
+    <div class="prop-item">
+      <div class="prop-icon">🔗</div>
+      <div>
+        <div class="prop-name">Number of Edges</div>
+        <div class="prop-desc">Tree ที่มี <code>N</code> nodes จะมี <strong>N−1 edges เสมอ</strong> — มากกว่านี้คือมี cycle, น้อยกว่านี้คือ disconnected<br>และมีเส้นทางเดียว (unique path) ระหว่าง node ใดๆ สองตัวเสมอ</div>
+      </div>
+    </div>
+    <div class="prop-item">
+      <div class="prop-icon">📏</div>
+      <div>
+        <div class="prop-name">Depth of a Node</div>
+        <div class="prop-desc">ความยาวเส้นทาง (นับ edge) จาก root ลงมาถึง node นั้น — root มี <code>depth = 0</code></div>
+      </div>
+    </div>
+    <div class="prop-item">
+      <div class="prop-icon">📐</div>
+      <div>
+        <div class="prop-name">Height of the Tree</div>
+        <div class="prop-desc">เส้นทางยาวที่สุดจาก root ลงไปถึง leaf ใดก็ได้ — tree ที่มีแค่ root มี <code>height = 0</code></div>
+      </div>
+    </div>
+    <div class="prop-item">
+      <div class="prop-icon">🌿</div>
+      <div>
+        <div class="prop-name">Degree of a Node / Tree</div>
+        <div class="prop-desc">Degree ของ node = จำนวน children — leaf มี degree 0<br>Degree ของ tree = degree สูงสุดในทุก node</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- CH3: TRAVERSAL -->
+<!-- CH3: TYPES OF TREE -->
 <section class="ch" id="ch3">
   <div class="ch-eyebrow">Chapter 03</div>
+  <h2>ประเภทของ Tree</h2>
+  <p class="ch-time">⏱ ~15 min</p>
+  <p>Tree แบ่งตามจำนวน children ที่แต่ละ node มีได้เป็นหลัก:</p>
+
+  <div class="type-grid">
+    <div class="type-card tc-green">
+      <div class="type-card-hdr">
+        <div class="type-card-title">Binary Tree</div>
+        <div class="type-card-sub">ลูกได้มากสุด 2 ตัว</div>
+      </div>
+      <div class="type-card-body">
+        <p>แต่ละ node มี <strong>left</strong> และ <strong>right</strong> child ได้ไม่เกิน 2 ตัว</p>
+        <ul>
+          <li><strong>Full BT</strong> — ทุก node มีลูก 0 หรือ 2</li>
+          <li><strong>Complete BT</strong> — ทุก level เต็มยกเว้น level สุดท้าย (เติมซ้ายก่อน)</li>
+          <li><strong>Perfect BT</strong> — ทุก level เต็มหมด, ทุก leaf อยู่ depth เดียวกัน</li>
+          <li><strong>Balanced BT</strong> — ต่าง height ซ้าย−ขวา ≤ 1</li>
+        </ul>
+      </div>
+    </div>
+    <div class="type-card tc-blue">
+      <div class="type-card-hdr">
+        <div class="type-card-title">Ternary Tree</div>
+        <div class="type-card-sub">ลูกได้มากสุด 3 ตัว</div>
+      </div>
+      <div class="type-card-body">
+        <p>แต่ละ node มีลูกได้ไม่เกิน 3 ตัว: <strong>left, middle, right</strong></p>
+        <ul>
+          <li>ใช้น้อยกว่า Binary Tree</li>
+          <li>ตัวอย่าง: Ternary Search Tree</li>
+        </ul>
+      </div>
+    </div>
+    <div class="type-card tc-purple">
+      <div class="type-card-hdr">
+        <div class="type-card-title">N-ary Tree</div>
+        <div class="type-card-sub">ลูกได้ไม่จำกัด</div>
+      </div>
+      <div class="type-card-body">
+        <p>แต่ละ node มีลูกได้ <strong>ไม่จำกัดจำนวน</strong> — ตรงกับ tree ที่ได้รับจาก input ใน CP</p>
+        <ul>
+          <li>เก็บ children ด้วย <code>vector</code></li>
+          <li>โจทย์ Olympiad ส่วนใหญ่เป็น N-ary</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h3>🔑 BST และ Variants ที่เจอใน CP</h3>
+  <table class="tbl">
+    <thead><tr><th>Type</th><th>เงื่อนไขพิเศษ</th><th>ใช้ใน</th></tr></thead>
+    <tbody>
+      <tr><td style="font-weight:700;color:var(--green-bright)">BST</td><td>Left &lt; Root &lt; Right ทุก node</td><td>ค้นหา O(log n)</td></tr>
+      <tr><td style="font-weight:700;color:var(--blue)">AVL Tree</td><td>BST + balance อัตโนมัติ (rotate)</td><td>รับประกัน O(log n)</td></tr>
+      <tr><td style="font-weight:700;color:var(--red)">Heap</td><td>Complete BT + parent ≤/≥ children</td><td>Priority Queue</td></tr>
+      <tr><td style="font-weight:700;color:var(--purple)">Segment Tree</td><td>Array-based BT เก็บ range aggregate</td><td>Range Query CP</td></tr>
+    </tbody>
+  </table>
+
+  <h3>🌳 Binary Tree — ทำไมสำคัญที่สุด?
+  <p>Binary Tree เป็น tree ที่ถูกพูดถึงมากที่สุดในเชิงทฤษฎี เพราะ <strong>structure เกือบทุกอย่างใน DSA ต่อยอดมาจากมัน</strong></p>
+
+  <div class="app-grid">
+    <div class="app-card">
+      <div class="app-icon">🔍</div>
+      <div class="app-name">Binary Search Tree</div>
+      <div class="app-desc">ค้นหา / insert / delete ใน O(log n) — เป็นพื้นฐานของ <code>set</code> และ <code>map</code> ใน STL</div>
+      <div class="app-cp">CP: ใช้ <code>set/map</code> แทน BST ตรงๆ เสมอ</div>
+    </div>
+    <div class="app-card">
+      <div class="app-icon">⏫</div>
+      <div class="app-name">Heap (Priority Queue)</div>
+      <div class="app-desc">Complete BT ที่ parent ≥ children เสมอ — extract max/min ได้ O(log n)</div>
+      <div class="app-cp">CP: <code>priority_queue&lt;int&gt;</code> ใช้งานตรงๆ</div>
+    </div>
+    <div class="app-card">
+      <div class="app-icon">📊</div>
+      <div class="app-name">Segment Tree</div>
+      <div class="app-desc">Binary Tree เก็บ range aggregate (sum, max, min) — ตอบ range query ได้ O(log n)</div>
+      <div class="app-cp">CP: สำคัญมาก — Range Sum / Range Max Query</div>
+    </div>
+    <div class="app-card">
+      <div class="app-icon">🗜️</div>
+      <div class="app-name">Huffman Tree</div>
+      <div class="app-desc">Full BT ที่ใช้ใน data compression — node ที่ถูกใช้บ่อยอยู่ใกล้ root ที่สุด</div>
+      <div class="app-cp">CP: ออกเป็นโจทย์ greedy + priority_queue</div>
+    </div>
+  </div>
+
+  <div class="callout cp">
+    <div class="callout-title">⚡ สรุป Binary Tree ใน CP</div>
+    <p>คุณแทบไม่ต้อง <em>เขียน</em> Binary Tree ด้วย struct เอง แต่ต้อง <em>เข้าใจ concept</em> ให้แม่น เพราะ:<br>
+    <strong>Heap</strong> → <code>priority_queue</code> · <strong>BST</strong> → <code>set/map</code> · <strong>Segment Tree</strong> → array-based implementation · <strong>Huffman</strong> → greedy + priority_queue</p>
+  </div>
+</section>
+
+<!-- CH4: TRAVERSAL (เดิม CH3) -->
+<section class="ch" id="ch4">
+  <div class="ch-eyebrow">Chapter 04</div>
   <h2>แนวคิด Tree Traversal</h2>
   <p class="ch-time">⏱ ~30 min</p>
 
@@ -364,26 +573,26 @@ footer a:hover{color:var(--green)}
 
   <div class="tree-dia" style="max-width:360px">
     <svg width="320" height="160" viewBox="0 0 320 160">
-      <line x1="160" y1="35" x2="88"  y2="93" stroke="#2d6a4f" stroke-width="1.8"/>
-      <line x1="160" y1="35" x2="232" y2="93" stroke="#2d6a4f" stroke-width="1.8"/>
-      <line x1="88"  y1="93" x2="50"  y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-      <line x1="88"  y1="93" x2="120" y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-      <line x1="232" y1="93" x2="196" y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-      <line x1="232" y1="93" x2="268" y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-      <circle cx="160" cy="35"  r="19" fill="#1a3d2b" stroke="#4ade80" stroke-width="2"/>
-      <text x="160" y="41"  text-anchor="middle" fill="#4ade80" font-family="monospace" font-size="13" font-weight="bold">A</text>
-      <circle cx="88"  cy="93"  r="17" fill="#1a3d2b" stroke="#2d6a4f" stroke-width="1.5"/>
-      <text x="88"  y="99"  text-anchor="middle" fill="#6ee7b7" font-family="monospace" font-size="12">B</text>
-      <circle cx="232" cy="93"  r="17" fill="#1a3d2b" stroke="#2d6a4f" stroke-width="1.5"/>
-      <text x="232" y="99"  text-anchor="middle" fill="#6ee7b7" font-family="monospace" font-size="12">C</text>
-      <circle cx="50"  cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-      <text x="50"  y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="11">D</text>
-      <circle cx="120" cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-      <text x="120" y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="11">E</text>
-      <circle cx="196" cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-      <text x="196" y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="11">F</text>
-      <circle cx="268" cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-      <text x="268" y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="11">G</text>
+      <line x1="160" y1="35" x2="88"  y2="93" stroke="#16a34a" stroke-width="1.8"/>
+      <line x1="160" y1="35" x2="232" y2="93" stroke="#16a34a" stroke-width="1.8"/>
+      <line x1="88"  y1="93" x2="50"  y2="143" stroke="#86efac" stroke-width="1.5"/>
+      <line x1="88"  y1="93" x2="120" y2="143" stroke="#86efac" stroke-width="1.5"/>
+      <line x1="232" y1="93" x2="196" y2="143" stroke="#86efac" stroke-width="1.5"/>
+      <line x1="232" y1="93" x2="268" y2="143" stroke="#86efac" stroke-width="1.5"/>
+      <circle cx="160" cy="35"  r="19" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+      <text x="160" y="41"  text-anchor="middle" fill="#15803d" font-family="monospace" font-size="13" font-weight="bold">A</text>
+      <circle cx="88"  cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="88"  y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="12">B</text>
+      <circle cx="232" cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+      <text x="232" y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="12">C</text>
+      <circle cx="50"  cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="50"  y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">D</text>
+      <circle cx="120" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="120" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">E</text>
+      <circle cx="196" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="196" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">F</text>
+      <circle cx="268" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="268" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">G</text>
     </svg>
   </div>
 
@@ -397,30 +606,30 @@ footer a:hover{color:var(--green)}
     <div class="callout tip">
       <div class="callout-title">Preorder — Root → Left → Right</div>
       <p>เยี่ยม root ก่อนเสมอ → ลง left subtree → ลง right subtree<br>
-         ผลลัพธ์: <strong style="color:#fff">A B D E C F G</strong></p>
+         ผลลัพธ์: <strong style="color:var(--green-bright)">A B D E C F G</strong></p>
     </div>
     <div class="tree-dia" style="max-width:360px">
       <svg width="320" height="165" viewBox="0 0 320 165">
-        <line x1="160" y1="35" x2="88"  y2="93" stroke="#2d6a4f" stroke-width="1.8"/>
-        <line x1="160" y1="35" x2="232" y2="93" stroke="#2d6a4f" stroke-width="1.8"/>
-        <line x1="88"  y1="93" x2="50"  y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-        <line x1="88"  y1="93" x2="120" y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-        <line x1="232" y1="93" x2="196" y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-        <line x1="232" y1="93" x2="268" y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-        <circle cx="160" cy="35"  r="19" fill="#1a3d2b" stroke="#4ade80" stroke-width="2"/>
-        <text x="160" y="41"  text-anchor="middle" fill="#4ade80" font-family="monospace" font-size="12">A</text>
-        <circle cx="88"  cy="93"  r="17" fill="#1a3d2b" stroke="#2d6a4f" stroke-width="1.5"/>
-        <text x="88"  y="99"  text-anchor="middle" fill="#6ee7b7" font-family="monospace" font-size="11">B</text>
-        <circle cx="232" cy="93"  r="17" fill="#1a3d2b" stroke="#2d6a4f" stroke-width="1.5"/>
-        <text x="232" y="99"  text-anchor="middle" fill="#6ee7b7" font-family="monospace" font-size="11">C</text>
-        <circle cx="50"  cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-        <text x="50"  y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">D</text>
-        <circle cx="120" cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-        <text x="120" y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">E</text>
-        <circle cx="196" cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-        <text x="196" y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">F</text>
-        <circle cx="268" cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-        <text x="268" y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">G</text>
+        <line x1="160" y1="35" x2="88"  y2="93" stroke="#16a34a" stroke-width="1.8"/>
+        <line x1="160" y1="35" x2="232" y2="93" stroke="#16a34a" stroke-width="1.8"/>
+        <line x1="88"  y1="93" x2="50"  y2="143" stroke="#86efac" stroke-width="1.5"/>
+        <line x1="88"  y1="93" x2="120" y2="143" stroke="#86efac" stroke-width="1.5"/>
+        <line x1="232" y1="93" x2="196" y2="143" stroke="#86efac" stroke-width="1.5"/>
+        <line x1="232" y1="93" x2="268" y2="143" stroke="#86efac" stroke-width="1.5"/>
+        <circle cx="160" cy="35"  r="19" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+        <text x="160" y="41"  text-anchor="middle" fill="#15803d" font-family="monospace" font-size="12">A</text>
+        <circle cx="88"  cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="88"  y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="11">B</text>
+        <circle cx="232" cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="232" y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="11">C</text>
+        <circle cx="50"  cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+        <text x="50"  y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">D</text>
+        <circle cx="120" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+        <text x="120" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">E</text>
+        <circle cx="196" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+        <text x="196" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">F</text>
+        <circle cx="268" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+        <text x="268" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">G</text>
         <!-- visit order badges -->
         <circle cx="178" cy="20" r="10" fill="#fbbf24"/><text x="178" y="25" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">1</text>
         <circle cx="104" cy="79" r="10" fill="#fbbf24"/><text x="104" y="84" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">2</text>
@@ -439,30 +648,30 @@ footer a:hover{color:var(--green)}
     <div class="callout tip">
       <div class="callout-title">Inorder — Left → Root → Right</div>
       <p>ลงซ้ายสุดก่อน → root → right — ใน BST ได้ sorted เสมอ!<br>
-         ผลลัพธ์: <strong style="color:#fff">D B E A F C G</strong></p>
+         ผลลัพธ์: <strong style="color:var(--green-bright)">D B E A F C G</strong></p>
     </div>
     <div class="tree-dia" style="max-width:360px">
       <svg width="320" height="165" viewBox="0 0 320 165">
-        <line x1="160" y1="35" x2="88"  y2="93" stroke="#2d6a4f" stroke-width="1.8"/>
-        <line x1="160" y1="35" x2="232" y2="93" stroke="#2d6a4f" stroke-width="1.8"/>
-        <line x1="88"  y1="93" x2="50"  y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-        <line x1="88"  y1="93" x2="120" y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-        <line x1="232" y1="93" x2="196" y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-        <line x1="232" y1="93" x2="268" y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-        <circle cx="160" cy="35"  r="19" fill="#1a3d2b" stroke="#4ade80" stroke-width="2"/>
-        <text x="160" y="41"  text-anchor="middle" fill="#4ade80" font-family="monospace" font-size="12">A</text>
-        <circle cx="88"  cy="93"  r="17" fill="#1a3d2b" stroke="#2d6a4f" stroke-width="1.5"/>
-        <text x="88"  y="99"  text-anchor="middle" fill="#6ee7b7" font-family="monospace" font-size="11">B</text>
-        <circle cx="232" cy="93"  r="17" fill="#1a3d2b" stroke="#2d6a4f" stroke-width="1.5"/>
-        <text x="232" y="99"  text-anchor="middle" fill="#6ee7b7" font-family="monospace" font-size="11">C</text>
-        <circle cx="50"  cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-        <text x="50"  y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">D</text>
-        <circle cx="120" cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-        <text x="120" y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">E</text>
-        <circle cx="196" cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-        <text x="196" y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">F</text>
-        <circle cx="268" cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-        <text x="268" y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">G</text>
+        <line x1="160" y1="35" x2="88"  y2="93" stroke="#16a34a" stroke-width="1.8"/>
+        <line x1="160" y1="35" x2="232" y2="93" stroke="#16a34a" stroke-width="1.8"/>
+        <line x1="88"  y1="93" x2="50"  y2="143" stroke="#86efac" stroke-width="1.5"/>
+        <line x1="88"  y1="93" x2="120" y2="143" stroke="#86efac" stroke-width="1.5"/>
+        <line x1="232" y1="93" x2="196" y2="143" stroke="#86efac" stroke-width="1.5"/>
+        <line x1="232" y1="93" x2="268" y2="143" stroke="#86efac" stroke-width="1.5"/>
+        <circle cx="160" cy="35"  r="19" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+        <text x="160" y="41"  text-anchor="middle" fill="#15803d" font-family="monospace" font-size="12">A</text>
+        <circle cx="88"  cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="88"  y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="11">B</text>
+        <circle cx="232" cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="232" y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="11">C</text>
+        <circle cx="50"  cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+        <text x="50"  y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">D</text>
+        <circle cx="120" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+        <text x="120" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">E</text>
+        <circle cx="196" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+        <text x="196" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">F</text>
+        <circle cx="268" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+        <text x="268" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">G</text>
         <!-- inorder: D=1,B=2,E=3,A=4,F=5,C=6,G=7 -->
         <circle cx="178" cy="20" r="10" fill="#60a5fa"/><text x="178" y="25" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">4</text>
         <circle cx="104" cy="79" r="10" fill="#60a5fa"/><text x="104" y="84" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">2</text>
@@ -481,30 +690,30 @@ footer a:hover{color:var(--green)}
     <div class="callout tip">
       <div class="callout-title">Postorder — Left → Right → Root</div>
       <p>ลูกต้องเสร็จก่อน parent เสมอ — root มาสุดท้าย<br>
-         ผลลัพธ์: <strong style="color:#fff">D E B F G C A</strong></p>
+         ผลลัพธ์: <strong style="color:var(--green-bright)">D E B F G C A</strong></p>
     </div>
     <div class="tree-dia" style="max-width:360px">
       <svg width="320" height="165" viewBox="0 0 320 165">
-        <line x1="160" y1="35" x2="88"  y2="93" stroke="#2d6a4f" stroke-width="1.8"/>
-        <line x1="160" y1="35" x2="232" y2="93" stroke="#2d6a4f" stroke-width="1.8"/>
-        <line x1="88"  y1="93" x2="50"  y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-        <line x1="88"  y1="93" x2="120" y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-        <line x1="232" y1="93" x2="196" y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-        <line x1="232" y1="93" x2="268" y2="143" stroke="#2d6a4f" stroke-width="1.5"/>
-        <circle cx="160" cy="35"  r="19" fill="#1a3d2b" stroke="#4ade80" stroke-width="2"/>
-        <text x="160" y="41"  text-anchor="middle" fill="#4ade80" font-family="monospace" font-size="12">A</text>
-        <circle cx="88"  cy="93"  r="17" fill="#1a3d2b" stroke="#2d6a4f" stroke-width="1.5"/>
-        <text x="88"  y="99"  text-anchor="middle" fill="#6ee7b7" font-family="monospace" font-size="11">B</text>
-        <circle cx="232" cy="93"  r="17" fill="#1a3d2b" stroke="#2d6a4f" stroke-width="1.5"/>
-        <text x="232" y="99"  text-anchor="middle" fill="#6ee7b7" font-family="monospace" font-size="11">C</text>
-        <circle cx="50"  cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-        <text x="50"  y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">D</text>
-        <circle cx="120" cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-        <text x="120" y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">E</text>
-        <circle cx="196" cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-        <text x="196" y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">F</text>
-        <circle cx="268" cy="143" r="15" fill="#111d14" stroke="#21262d" stroke-width="1.5"/>
-        <text x="268" y="149" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="10">G</text>
+        <line x1="160" y1="35" x2="88"  y2="93" stroke="#16a34a" stroke-width="1.8"/>
+        <line x1="160" y1="35" x2="232" y2="93" stroke="#16a34a" stroke-width="1.8"/>
+        <line x1="88"  y1="93" x2="50"  y2="143" stroke="#86efac" stroke-width="1.5"/>
+        <line x1="88"  y1="93" x2="120" y2="143" stroke="#86efac" stroke-width="1.5"/>
+        <line x1="232" y1="93" x2="196" y2="143" stroke="#86efac" stroke-width="1.5"/>
+        <line x1="232" y1="93" x2="268" y2="143" stroke="#86efac" stroke-width="1.5"/>
+        <circle cx="160" cy="35"  r="19" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+        <text x="160" y="41"  text-anchor="middle" fill="#15803d" font-family="monospace" font-size="12">A</text>
+        <circle cx="88"  cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="88"  y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="11">B</text>
+        <circle cx="232" cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+        <text x="232" y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="11">C</text>
+        <circle cx="50"  cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+        <text x="50"  y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">D</text>
+        <circle cx="120" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+        <text x="120" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">E</text>
+        <circle cx="196" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+        <text x="196" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">F</text>
+        <circle cx="268" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+        <text x="268" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">G</text>
         <!-- postorder D=1,E=2,B=3,F=4,G=5,C=6,A=7 -->
         <circle cx="178" cy="20" r="10" fill="#c084fc"/><text x="178" y="25" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">7</text>
         <circle cx="104" cy="79" r="10" fill="#c084fc"/><text x="104" y="84" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">3</text>
@@ -530,8 +739,8 @@ footer a:hover{color:var(--green)}
 </section>
 
 <!-- CH4: REPRESENTATION -->
-<section class="ch" id="ch4">
-  <div class="ch-eyebrow">Chapter 04</div>
+<section class="ch" id="ch5">
+  <div class="ch-eyebrow">Chapter 05</div>
   <h2>Representation 3 แบบ</h2>
   <p class="ch-time">⏱ ~20 min</p>
 
@@ -597,8 +806,8 @@ vector&lt;<span class="type">int</span>&gt; adj[<span class="num">100005</span>]
 </section>
 
 <!-- CH5: BASIC OPERATIONS -->
-<section class="ch" id="ch5">
-  <div class="ch-eyebrow">Chapter 05</div>
+<section class="ch" id="ch6">
+  <div class="ch-eyebrow">Chapter 06</div>
   <h2>Basic Operations — พาทำทีละขั้น</h2>
   <p class="ch-time">⏱ ~25 min · ลองเขียนเองก่อนดู full code</p>
   <p>เรียนรู้ 4 operations พื้นฐาน ด้วย struct/pointer ก่อน เพื่อเข้าใจโครงสร้าง — ดู limitation ในบทถัดไป</p>
@@ -692,8 +901,8 @@ vector&lt;<span class="type">int</span>&gt; adj[<span class="num">100005</span>]
 </section>
 
 <!-- CH6: LIMITATIONS + SET/MAP -->
-<section class="ch" id="ch6">
-  <div class="ch-eyebrow">Chapter 06</div>
+<section class="ch" id="ch7">
+  <div class="ch-eyebrow">Chapter 07</div>
   <h2>ข้อจำกัด &amp; เมื่อไรใช้ <code>set</code> / <code>map</code></h2>
   <p class="ch-time">⏱ ~15 min</p>
   <p>หลังจากเข้าใจ struct/pointer แล้ว ต้องรู้ด้วยว่า <strong style="color:var(--red)">เมื่อไรไม่ควรใช้</strong></p>
@@ -719,7 +928,7 @@ vector&lt;<span class="type">int</span>&gt; adj[<span class="num">100005</span>]
   </div>
 
   <h3>✅ ใช้ STL แทน — รับประกัน O(log n)</h3>
-  <p><code>std::set</code> / <code>std::map</code> ใช้ <strong style="color:#fff">Red-Black Tree</strong> ข้างใน — BST ที่ balance ตัวเองอัตโนมัติ</p>
+  <p><code>std::set</code> / <code>std::map</code> ใช้ <strong style="color:var(--text)">Red-Black Tree</strong> ข้างใน — BST ที่ balance ตัวเองอัตโนมัติ</p>
 
   <div class="compare-grid">
     <div class="cmp-card cmp-bad">
@@ -763,6 +972,83 @@ s.<span class="fn">erase</span>(<span class="num">5</span>);     <span class="cm
   </div>
 </section>
 
+<!-- CH8: TREE vs GRAPH -->
+<section class="ch" id="ch8">
+  <div class="ch-eyebrow">Chapter 08</div>
+  <h2>Tree vs Graph — ข้อสังเกต</h2>
+  <p class="ch-time">⏱ ~10 min · สำคัญก่อนเรียน Part 2</p>
+
+  <p>Tree <strong>คือ Graph ชนิดหนึ่ง</strong> — Connected + Acyclic + Undirected Graph ที่มี n−1 edges พอดี การเข้าใจความสัมพันธ์นี้ทำให้ใช้ adjacency list เดียวกันได้ทันที</p>
+
+  <div class="diff-grid">
+    <div class="diff-card diff-tree">
+      <div class="diff-hdr">🌳 Tree</div>
+      <ul>
+        <li>Connected + Acyclic เสมอ</li>
+        <li>n nodes → <strong>n−1 edges เสมอ</strong></li>
+        <li>มีเส้นทาง unique ระหว่างทุก node</li>
+        <li>มี root (ใน rooted tree)</li>
+        <li>ไม่มี cycle เลย</li>
+      </ul>
+    </div>
+    <div class="diff-card diff-graph">
+      <div class="diff-hdr">🕸 Graph</div>
+      <ul>
+        <li>อาจ connected หรือไม่ก็ได้</li>
+        <li>n nodes → edges ได้ตั้งแต่ 0 ถึง n(n−1)/2</li>
+        <li>อาจมีหลาย path ระหว่าง 2 node</li>
+        <li>ไม่มี root โดยธรรมชาติ</li>
+        <li>มี cycle ได้</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 ข้อสังเกตสำคัญ</div>
+    <p>ถ้าให้ undirected graph ที่มี <strong>n nodes, n−1 edges และ connected</strong> — มันคือ tree เสมอ<br>
+    นี่คือเหตุผลที่ใน CP เราอ่าน input tree ด้วย adjacency list <strong>เหมือน graph ธรรมดาทุกอย่าง</strong></p>
+  </div>
+
+  <h3>การมอง Tree ก่อนเขียนโค้ด CP</h3>
+  <p>มี 2 วิธีมอง tree ใน CP โจทย์จะบอกว่าใช้แบบไหน:</p>
+
+  <div class="view-grid">
+    <div class="view-card">
+      <div class="view-badge vc-green">View 1</div>
+      <div class="view-name">Rooted Tree</div>
+      <div class="view-desc">กำหนด root (มักคือ node 1) — มี parent/child ชัดเจน เดิน DFS จาก root ลงมา ใช้กับโจทย์ depth, subtree, Tree DP</div>
+      <div class="code-block" style="margin-top:8px">
+        <pre style="font-size:.78rem"><span class="fn">dfs</span>(<span class="num">1</span>, <span class="num">0</span>);  <span class="cm">// root=1, parent=0</span></pre>
+      </div>
+    </div>
+    <div class="view-card">
+      <div class="view-badge vc-purple">View 2</div>
+      <div class="view-name">Unrooted Tree (Graph มอง)</div>
+      <div class="view-desc">ไม่สน parent/child — แค่ "เพื่อนบ้าน" เท่านั้น ใช้ visited array เหมือน graph ทั่วไป ใช้กับโจทย์ diameter, path ระหว่าง node</div>
+      <div class="code-block" style="margin-top:8px">
+        <pre style="font-size:.78rem"><span class="fn">dfs</span>(start, visited);  <span class="cm">// เหมือน graph</span></pre>
+      </div>
+    </div>
+  </div>
+
+  <table class="tbl" style="margin-top:20px">
+    <thead><tr><th>ลักษณะ</th><th>Tree</th><th>General Graph</th></tr></thead>
+    <tbody>
+      <tr><td>Input reading</td><td style="color:var(--green-bright)">adj list (n−1 edges)</td><td>adj list (m edges)</td></tr>
+      <tr><td>Skip revisit</td><td style="color:var(--green-bright)"><code>if v == parent: skip</code></td><td><code>visited[]</code> array</td></tr>
+      <tr><td>Guaranteed connected</td><td style="color:var(--green-bright)">✓ เสมอ</td><td>ต้องเช็คเอง</td></tr>
+      <tr><td>Cycle possible</td><td style="color:var(--green-bright)">✗ ไม่มี</td><td>✓ มีได้</td></tr>
+      <tr><td>DFS call</td><td style="color:var(--green-bright)"><code>dfs(root, 0)</code></td><td>loop ทุก node ที่ยัง unvisited</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout cp">
+    <div class="callout-title">⚡ Takeaway ก่อนเข้า Part 2</div>
+    <p>โจทย์ให้ tree มา → อ่าน edge เป็น adjacency list เหมือน graph → เลือก View 1 (rooted) หรือ View 2 (unrooted) ตามโจทย์ → DFS/BFS เดิมเลย<br>
+    <strong>ไม่ต้องคิดว่า "left/right child" คืออะไร</strong> เพราะ tree ใน CP ส่วนใหญ่เป็น N-ary</p>
+  </div>
+</section>
+
 <footer>
   <a class="footer-next" href="tree-cp-lesson.html">ต่อไป: Part 2 — CP Implementation →</a>
   <p style="margin-top:10px">อ้างอิง: <a href="https://www.geeksforgeeks.org/dsa/introduction-to-tree-data-structure/" target="_blank">GFG Tree Intro</a> · <a href="https://www.programiz.com/dsa/tree-traversal" target="_blank">Programiz Traversal</a> · <a href="https://cp-algorithms.com/graph/depth-first-search.html" target="_blank">cp-algorithms DFS</a></p>
@@ -772,7 +1058,7 @@ s.<span class="fn">erase</span>(<span class="num">5</span>);     <span class="cm
 
 </main>
 <script>
-const secs=['ch1','ch2','ch3','ch4','ch5','ch6'];
+const secs=['ch1','ch2','ch3','ch4','ch5','ch6','ch7','ch8'];
 function updateProgress(){
   let vis=0;
   secs.forEach(id=>{const el=document.getElementById(id);if(!el)return;if(el.getBoundingClientRect().top<window.innerHeight*.65)vis++;});
