@@ -151,8 +151,8 @@ code{color:var(--green);background:rgba(74,222,128,.09);padding:1px 5px;border-r
 .cmp-good{border:1px solid rgba(74,222,128,.2)}
 
 footer{padding:36px 72px;text-align:center;color:var(--text-muted);font-size:.84rem;border-top:2px solid var(--border);background:var(--bg)}
-footer a{color:var(--green-dim);text-decoration:none}
-footer a:hover{color:var(--green)}
+footer a{color:var(--green);text-decoration:none}
+footer a:hover{color:var(--green-bright)}
 .footer-next{display:inline-flex;align-items:center;gap:8px;background:rgba(192,132,252,.06);border:1px solid rgba(192,132,252,.22);color:var(--purple);text-decoration:none;font-family:'Kanit',sans-serif;font-size:.81rem;padding:9px 18px;border-radius:7px;margin-bottom:14px;transition:all .2s}
 .footer-next:hover{background:rgba(192,132,252,.11);border-color:var(--purple)}
 
@@ -502,6 +502,141 @@ footer a:hover{color:var(--green)}
     </div>
   </div>
 
+  <h3>🔑 Binary Tree คืออะไร?</h3>
+  <p>แต่ละ node มีลูกได้ <strong>ไม่เกิน 2 ตัว</strong> — เรียกว่า <strong>left child</strong> และ <strong>right child</strong></p>
+
+  <!-- Binary Tree anatomy SVG -->
+  <div class="tree-dia" style="max-width:520px">
+    <svg width="480" height="200" viewBox="0 0 480 200">
+      <!-- edges -->
+      <line x1="240" y1="42" x2="130" y2="105" stroke="#16a34a" stroke-width="2"/>
+      <line x1="240" y1="42" x2="350" y2="105" stroke="#16a34a" stroke-width="2"/>
+      <line x1="130" y1="105" x2="75"  y2="165" stroke="#86efac" stroke-width="1.8"/>
+      <line x1="130" y1="105" x2="185" y2="165" stroke="#86efac" stroke-width="1.8"/>
+      <line x1="350" y1="105" x2="295" y2="165" stroke="#86efac" stroke-width="1.8"/>
+      <line x1="350" y1="105" x2="410" y2="165" stroke="#86efac" stroke-width="1.8"/>
+      <!-- root -->
+      <circle cx="240" cy="42" r="24" fill="#dcfce7" stroke="#16a34a" stroke-width="2.5"/>
+      <text x="240" y="48" text-anchor="middle" fill="#15803d" font-family="monospace" font-size="14" font-weight="bold">8</text>
+      <!-- level 2 -->
+      <circle cx="130" cy="105" r="21" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+      <text x="130" y="111" text-anchor="middle" fill="#374151" font-family="monospace" font-size="13">3</text>
+      <circle cx="350" cy="105" r="21" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+      <text x="350" y="111" text-anchor="middle" fill="#374151" font-family="monospace" font-size="13">10</text>
+      <!-- level 3 -->
+      <circle cx="75"  cy="165" r="18" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="75"  y="171" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="12">1</text>
+      <circle cx="185" cy="165" r="18" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="185" y="171" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="12">6</text>
+      <circle cx="295" cy="165" r="18" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="295" y="171" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="12">9</text>
+      <circle cx="410" cy="165" r="18" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
+      <text x="410" y="171" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="12">14</text>
+      <!-- labels -->
+      <text x="240" y="16" text-anchor="middle" fill="#b45309" font-family="monospace" font-size="10" font-weight="bold">Root</text>
+      <!-- left/right arrows under root -->
+      <text x="158" y="78" text-anchor="middle" fill="#16a34a" font-family="monospace" font-size="9.5">left child</text>
+      <text x="322" y="78" text-anchor="middle" fill="#7c3aed" font-family="monospace" font-size="9.5">right child</text>
+      <!-- leaf labels -->
+      <text x="75" y="190" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="8.5">Leaf</text>
+      <text x="185" y="190" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="8.5">Leaf</text>
+      <text x="295" y="190" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="8.5">Leaf</text>
+      <text x="410" y="190" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="8.5">Leaf</text>
+      <!-- note: also BST property -->
+      <text x="460" y="98" text-anchor="end" fill="#d97706" font-family="monospace" font-size="9">← ≥ root</text>
+      <text x="20"  y="98" text-anchor="start" fill="#16a34a" font-family="monospace" font-size="9">≤ root →</text>
+    </svg>
+  </div>
+
+  <h3 style="margin-top:24px">📐 ประเภทของ Binary Tree</h3>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;max-width:820px;margin:14px 0 22px">
+
+    <!-- Full BT -->
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px">
+      <div style="font-weight:700;color:var(--green-bright);margin-bottom:6px;font-size:.9rem">Full Binary Tree</div>
+      <svg width="120" height="90" viewBox="0 0 120 90" style="display:block;margin:0 auto 8px">
+        <line x1="60" y1="16" x2="30" y2="50" stroke="#16a34a" stroke-width="1.5"/>
+        <line x1="60" y1="16" x2="90" y2="50" stroke="#16a34a" stroke-width="1.5"/>
+        <line x1="30" y1="50" x2="12" y2="78" stroke="#86efac" stroke-width="1.2"/>
+        <line x1="30" y1="50" x2="48" y2="78" stroke="#86efac" stroke-width="1.2"/>
+        <circle cx="60" cy="16" r="12" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+        <circle cx="30" cy="50" r="11" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.2"/>
+        <circle cx="90" cy="50" r="11" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.2"/>
+        <circle cx="12" cy="78" r="9"  fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+        <circle cx="48" cy="78" r="9"  fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+        <text x="90" y="54" text-anchor="middle" fill="#d1d5db" font-family="monospace" font-size="8">leaf</text>
+      </svg>
+      <div style="font-size:.78rem;color:var(--text-dim);line-height:1.5">ทุก node มีลูก <strong>0 หรือ 2</strong> ตัวเท่านั้น — ไม่มีตัวใดมีลูกแค่ตัวเดียว</div>
+      <div style="margin-top:7px;font-size:.72rem;font-family:'JetBrains Mono',monospace;background:var(--accent-bg);color:var(--green-b);padding:2px 8px;border-radius:4px;display:inline-block">ใช้ใน: Huffman Coding</div>
+    </div>
+
+    <!-- Complete BT -->
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px">
+      <div style="font-weight:700;color:var(--blue);margin-bottom:6px;font-size:.9rem">Complete Binary Tree</div>
+      <svg width="120" height="90" viewBox="0 0 120 90" style="display:block;margin:0 auto 8px">
+        <line x1="60" y1="16" x2="30" y2="50" stroke="#2563eb" stroke-width="1.5"/>
+        <line x1="60" y1="16" x2="90" y2="50" stroke="#2563eb" stroke-width="1.5"/>
+        <line x1="30" y1="50" x2="12" y2="78" stroke="#93c5fd" stroke-width="1.2"/>
+        <line x1="30" y1="50" x2="48" y2="78" stroke="#93c5fd" stroke-width="1.2"/>
+        <line x1="90" y1="50" x2="72" y2="78" stroke="#93c5fd" stroke-width="1.2"/>
+        <circle cx="60" cy="16" r="12" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+        <circle cx="30" cy="50" r="11" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+        <circle cx="90" cy="50" r="11" fill="#eff6ff" stroke="#2563eb" stroke-width="1.2"/>
+        <circle cx="12" cy="78" r="9"  fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+        <circle cx="48" cy="78" r="9"  fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+        <circle cx="72" cy="78" r="9"  fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+      </svg>
+      <div style="font-size:.78rem;color:var(--text-dim);line-height:1.5">ทุก level เต็มยกเว้น level สุดท้าย — level สุดท้ายเติมจาก <strong>ซ้ายก่อน</strong> เสมอ</div>
+      <div style="margin-top:7px;font-size:.72rem;font-family:'JetBrains Mono',monospace;background:#eff6ff;color:var(--blue);padding:2px 8px;border-radius:4px;display:inline-block">ใช้ใน: Binary Heap</div>
+    </div>
+
+    <!-- Perfect BT -->
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px">
+      <div style="font-weight:700;color:var(--purple);margin-bottom:6px;font-size:.9rem">Perfect Binary Tree</div>
+      <svg width="120" height="90" viewBox="0 0 120 90" style="display:block;margin:0 auto 8px">
+        <line x1="60" y1="16" x2="30" y2="50" stroke="#7c3aed" stroke-width="1.5"/>
+        <line x1="60" y1="16" x2="90" y2="50" stroke="#7c3aed" stroke-width="1.5"/>
+        <line x1="30" y1="50" x2="12" y2="78" stroke="#c4b5fd" stroke-width="1.2"/>
+        <line x1="30" y1="50" x2="48" y2="78" stroke="#c4b5fd" stroke-width="1.2"/>
+        <line x1="90" y1="50" x2="72" y2="78" stroke="#c4b5fd" stroke-width="1.2"/>
+        <line x1="90" y1="50" x2="108" y2="78" stroke="#c4b5fd" stroke-width="1.2"/>
+        <circle cx="60"  cy="16" r="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+        <circle cx="30"  cy="50" r="11" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.2"/>
+        <circle cx="90"  cy="50" r="11" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.2"/>
+        <circle cx="12"  cy="78" r="9"  fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+        <circle cx="48"  cy="78" r="9"  fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+        <circle cx="72"  cy="78" r="9"  fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+        <circle cx="108" cy="78" r="9"  fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+      </svg>
+      <div style="font-size:.78rem;color:var(--text-dim);line-height:1.5">ทุก level เต็มหมด — ทุก leaf อยู่ที่ <strong>depth เดียวกัน</strong> จำนวน node = 2ʰ⁺¹ − 1</div>
+      <div style="margin-top:7px;font-size:.72rem;font-family:'JetBrains Mono',monospace;background:#f5f3ff;color:var(--purple);padding:2px 8px;border-radius:4px;display:inline-block">ใช้ใน: Segment Tree (concept)</div>
+    </div>
+
+    <!-- Balanced BT -->
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px">
+      <div style="font-weight:700;color:var(--gold);margin-bottom:6px;font-size:.9rem">Balanced Binary Tree</div>
+      <svg width="120" height="90" viewBox="0 0 120 90" style="display:block;margin:0 auto 8px">
+        <line x1="60" y1="16" x2="30" y2="50" stroke="#d97706" stroke-width="1.5"/>
+        <line x1="60" y1="16" x2="90" y2="50" stroke="#d97706" stroke-width="1.5"/>
+        <line x1="30" y1="50" x2="15" y2="78" stroke="#fcd34d" stroke-width="1.2"/>
+        <line x1="30" y1="50" x2="45" y2="78" stroke="#fcd34d" stroke-width="1.2"/>
+        <line x1="90" y1="50" x2="78" y2="78" stroke="#fcd34d" stroke-width="1.2"/>
+        <circle cx="60" cy="16" r="12" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+        <circle cx="30" cy="50" r="11" fill="#fffbeb" stroke="#d97706" stroke-width="1.2"/>
+        <circle cx="90" cy="50" r="11" fill="#fffbeb" stroke="#d97706" stroke-width="1.2"/>
+        <circle cx="15" cy="78" r="9"  fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+        <circle cx="45" cy="78" r="9"  fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+        <circle cx="78" cy="78" r="9"  fill="#f9fafb" stroke="#d1d5db" stroke-width="1"/>
+        <!-- height labels -->
+        <text x="104" y="55" fill="#d97706" font-family="monospace" font-size="8">h=1</text>
+        <text x="104" y="22" fill="#d97706" font-family="monospace" font-size="8">|Δh|≤1</text>
+      </svg>
+      <div style="font-size:.78rem;color:var(--text-dim);line-height:1.5">height ซ้าย − ขวา ≤ 1 ทุก node — <strong>AVL Tree</strong> ปรับ balance อัตโนมัติด้วย rotation</div>
+      <div style="margin-top:7px;font-size:.72rem;font-family:'JetBrains Mono',monospace;background:#fffbeb;color:var(--gold);padding:2px 8px;border-radius:4px;display:inline-block">ใช้ใน: AVL Tree, Red-Black Tree</div>
+    </div>
+
+  </div>
+
   <h3>🔑 BST และ Variants ที่เจอใน CP</h3>
   <table class="tbl">
     <thead><tr><th>Type</th><th>เงื่อนไขพิเศษ</th><th>ใช้ใน</th></tr></thead>
@@ -513,10 +648,10 @@ footer a:hover{color:var(--green)}
     </tbody>
   </table>
 
-  <h3>🌳 Binary Tree — ทำไมสำคัญที่สุด?
-  <p>Binary Tree เป็น tree ที่ถูกพูดถึงมากที่สุดในเชิงทฤษฎี เพราะ <strong>structure เกือบทุกอย่างใน DSA ต่อยอดมาจากมัน</strong></p>
+  <h3>🌳 Binary Tree — ทำไมสำคัญ ?
+  <p>Binary Tree เป็น tree ที่ถูกพูดถึงมากที่สุดในเชิงทฤษฎี เพราะ structure ส่วนใหญ่ต่อยอดมาจากส่วนนี้</p>
 
-  <div class="app-grid">
+  <div class="app-grid" style="grid-template-columns:repeat(2,1fr)">
     <div class="app-card">
       <div class="app-icon">🔍</div>
       <div class="app-name">Binary Search Tree</div>
@@ -550,7 +685,7 @@ footer a:hover{color:var(--green)}
   </div>
 </section>
 
-<!-- CH4: TRAVERSAL (เดิม CH3) -->
+<!-- CH4: TRAVERSAL -->
 <section class="ch" id="ch4">
   <div class="ch-eyebrow">Chapter 04</div>
   <h2>แนวคิด Tree Traversal</h2>
@@ -563,173 +698,146 @@ footer a:hover{color:var(--green)}
        → เกี่ยวข้องกัน แต่คนละบริบท</p>
   </div>
 
-  <p>Binary tree ที่ใช้ในตัวอย่าง — ตัวเลขวงกลมสีคือลำดับที่เยี่ยม:</p>
+  <p style="margin-bottom:18px">ตัวเลขในวงกลม <span style="display:inline-block;background:#fbbf24;color:#000;border-radius:50%;width:18px;height:18px;text-align:center;font-size:11px;line-height:18px;font-weight:bold">n</span> = ลำดับที่เยี่ยม node นั้น — ใช้ tree เดิมทั้ง 4 แบบ:</p>
 
-  <div class="tree-dia" style="max-width:360px">
-    <svg width="320" height="160" viewBox="0 0 320 160">
-      <line x1="160" y1="35" x2="88"  y2="93" stroke="#16a34a" stroke-width="1.8"/>
-      <line x1="160" y1="35" x2="232" y2="93" stroke="#16a34a" stroke-width="1.8"/>
-      <line x1="88"  y1="93" x2="50"  y2="143" stroke="#86efac" stroke-width="1.5"/>
-      <line x1="88"  y1="93" x2="120" y2="143" stroke="#86efac" stroke-width="1.5"/>
-      <line x1="232" y1="93" x2="196" y2="143" stroke="#86efac" stroke-width="1.5"/>
-      <line x1="232" y1="93" x2="268" y2="143" stroke="#86efac" stroke-width="1.5"/>
-      <circle cx="160" cy="35"  r="19" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
-      <text x="160" y="41"  text-anchor="middle" fill="#15803d" font-family="monospace" font-size="13" font-weight="bold">A</text>
-      <circle cx="88"  cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
-      <text x="88"  y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="12">B</text>
-      <circle cx="232" cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
-      <text x="232" y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="12">C</text>
-      <circle cx="50"  cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-      <text x="50"  y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">D</text>
-      <circle cx="120" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-      <text x="120" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">E</text>
-      <circle cx="196" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-      <text x="196" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">F</text>
-      <circle cx="268" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-      <text x="268" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="11">G</text>
-    </svg>
-  </div>
+  <!-- 4 traversal diagrams side by side -->
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:900px;margin-bottom:22px">
 
-  <div class="tab-group">
-    <button class="tab-btn active" onclick="switchTab(this,'tab-pre')">Preorder</button>
-    <button class="tab-btn" onclick="switchTab(this,'tab-in')">Inorder</button>
-    <button class="tab-btn" onclick="switchTab(this,'tab-post')">Postorder</button>
-  </div>
-
-  <div class="tab-content active" id="tab-pre">
-    <div class="callout tip">
-      <div class="callout-title">Preorder — Root → Left → Right</div>
-      <p>เยี่ยม root ก่อนเสมอ → ลง left subtree → ลง right subtree<br>
-         ผลลัพธ์: <strong style="color:var(--green-bright)">A B D E C F G</strong></p>
-    </div>
-    <div class="tree-dia" style="max-width:360px">
-      <svg width="320" height="165" viewBox="0 0 320 165">
-        <line x1="160" y1="35" x2="88"  y2="93" stroke="#16a34a" stroke-width="1.8"/>
-        <line x1="160" y1="35" x2="232" y2="93" stroke="#16a34a" stroke-width="1.8"/>
-        <line x1="88"  y1="93" x2="50"  y2="143" stroke="#86efac" stroke-width="1.5"/>
-        <line x1="88"  y1="93" x2="120" y2="143" stroke="#86efac" stroke-width="1.5"/>
-        <line x1="232" y1="93" x2="196" y2="143" stroke="#86efac" stroke-width="1.5"/>
-        <line x1="232" y1="93" x2="268" y2="143" stroke="#86efac" stroke-width="1.5"/>
-        <circle cx="160" cy="35"  r="19" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
-        <text x="160" y="41"  text-anchor="middle" fill="#15803d" font-family="monospace" font-size="12">A</text>
-        <circle cx="88"  cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
-        <text x="88"  y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="11">B</text>
-        <circle cx="232" cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
-        <text x="232" y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="11">C</text>
-        <circle cx="50"  cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-        <text x="50"  y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">D</text>
-        <circle cx="120" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-        <text x="120" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">E</text>
-        <circle cx="196" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-        <text x="196" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">F</text>
-        <circle cx="268" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-        <text x="268" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">G</text>
+    <!-- PREORDER -->
+    <div style="background:var(--bg2);border:1.5px solid #fde68a;border-radius:10px;padding:14px 10px;text-align:center">
+      <div style="font-weight:700;font-size:.88rem;color:var(--gold);margin-bottom:2px">DFS Preorder</div>
+      <div style="font-size:.72rem;color:var(--text-muted);margin-bottom:10px;font-family:'Kanit',sans-serif">Top → Bottom<br>Left → Right</div>
+      <svg width="140" height="150" viewBox="0 0 140 150" style="display:block;margin:0 auto">
+        <line x1="70" y1="28" x2="35"  y2="75" stroke="#d97706" stroke-width="1.8"/>
+        <line x1="70" y1="28" x2="105" y2="75" stroke="#d97706" stroke-width="1.8"/>
+        <line x1="35" y1="75" x2="15"  y2="122" stroke="#fcd34d" stroke-width="1.5"/>
+        <line x1="35" y1="75" x2="58"  y2="122" stroke="#fcd34d" stroke-width="1.5"/>
+        <line x1="105" y1="75" x2="85" y2="122" stroke="#fcd34d" stroke-width="1.5"/>
+        <!-- nodes — pastel gold fill -->
+        <circle cx="70"  cy="28"  r="17" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+        <circle cx="35"  cy="75"  r="15" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+        <circle cx="105" cy="75"  r="15" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+        <circle cx="15"  cy="122" r="13" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+        <circle cx="58"  cy="122" r="13" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+        <circle cx="85"  cy="122" r="13" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
         <!-- visit order badges -->
-        <circle cx="178" cy="20" r="10" fill="#fbbf24"/><text x="178" y="25" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">1</text>
-        <circle cx="104" cy="79" r="10" fill="#fbbf24"/><text x="104" y="84" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">2</text>
-        <circle cx="66"  cy="130" r="10" fill="#fbbf24"/><text x="66" y="135" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">3</text>
-        <circle cx="136" cy="130" r="10" fill="#fbbf24"/><text x="136" y="135" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">4</text>
-        <circle cx="248" cy="79" r="10" fill="#fbbf24"/><text x="248" y="84" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">5</text>
-        <circle cx="212" cy="130" r="10" fill="#fbbf24"/><text x="212" y="135" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">6</text>
-        <circle cx="284" cy="130" r="10" fill="#fbbf24"/><text x="284" y="135" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">7</text>
+        <circle cx="88"  cy="14"  r="10" fill="#d97706"/><text x="88"  y="19"  text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">1</text>
+        <circle cx="51"  cy="61"  r="10" fill="#d97706"/><text x="51"  y="66"  text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">2</text>
+        <circle cx="28"  cy="109" r="10" fill="#d97706"/><text x="28"  y="114" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">3</text>
+        <circle cx="71"  cy="109" r="10" fill="#d97706"/><text x="71"  y="114" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">4</text>
+        <circle cx="119" cy="61"  r="10" fill="#d97706"/><text x="119" y="66"  text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">5</text>
+        <circle cx="98"  cy="109" r="10" fill="#d97706"/><text x="98"  y="114" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">6</text>
+        <!-- result -->
+        <text x="70" y="144" text-anchor="middle" fill="#d97706" font-family="monospace" font-size="8.5" font-weight="bold">Root→L→R</text>
       </svg>
+      <div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--gold);background:#fffbeb;border-radius:4px;padding:3px 6px">A B D E C F</div>
     </div>
-    <div class="callout cp"><div class="callout-title">⚡ CP Use Case</div>
-    <p>ใช้ serialize/copy tree — root มาก่อนเสมอ สร้าง tree ใหม่ได้ถ้ามี inorder คู่กัน</p></div>
+
+    <!-- INORDER -->
+    <div style="background:var(--bg2);border:1.5px solid #93c5fd;border-radius:10px;padding:14px 10px;text-align:center">
+      <div style="font-weight:700;font-size:.88rem;color:var(--blue);margin-bottom:2px">DFS Inorder</div>
+      <div style="font-size:.72rem;color:var(--text-muted);margin-bottom:10px;font-family:'Kanit',sans-serif">Left → Node<br>→ Right</div>
+      <svg width="140" height="150" viewBox="0 0 140 150" style="display:block;margin:0 auto">
+        <line x1="70" y1="28" x2="35"  y2="75" stroke="#2563eb" stroke-width="1.8"/>
+        <line x1="70" y1="28" x2="105" y2="75" stroke="#2563eb" stroke-width="1.8"/>
+        <line x1="35" y1="75" x2="15"  y2="122" stroke="#93c5fd" stroke-width="1.5"/>
+        <line x1="35" y1="75" x2="58"  y2="122" stroke="#93c5fd" stroke-width="1.5"/>
+        <line x1="105" y1="75" x2="85" y2="122" stroke="#93c5fd" stroke-width="1.5"/>
+        <circle cx="70"  cy="28"  r="17" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+        <circle cx="35"  cy="75"  r="15" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+        <circle cx="105" cy="75"  r="15" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+        <circle cx="15"  cy="122" r="13" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+        <circle cx="58"  cy="122" r="13" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+        <circle cx="85"  cy="122" r="13" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+        <!-- inorder: D=1, B=2, E=3, A=4, F=5, C=6 -->
+        <circle cx="88"  cy="14"  r="10" fill="#2563eb"/><text x="88"  y="19"  text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">4</text>
+        <circle cx="51"  cy="61"  r="10" fill="#2563eb"/><text x="51"  y="66"  text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">2</text>
+        <circle cx="28"  cy="109" r="10" fill="#2563eb"/><text x="28"  y="114" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">1</text>
+        <circle cx="71"  cy="109" r="10" fill="#2563eb"/><text x="71"  y="114" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">3</text>
+        <circle cx="119" cy="61"  r="10" fill="#2563eb"/><text x="119" y="66"  text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">6</text>
+        <circle cx="98"  cy="109" r="10" fill="#2563eb"/><text x="98"  y="114" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">5</text>
+        <text x="70" y="144" text-anchor="middle" fill="#2563eb" font-family="monospace" font-size="8.5" font-weight="bold">L→Root→R</text>
+      </svg>
+      <div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--blue);background:#eff6ff;border-radius:4px;padding:3px 6px">D B E A F C</div>
+    </div>
+
+    <!-- POSTORDER -->
+    <div style="background:var(--bg2);border:1.5px solid #c4b5fd;border-radius:10px;padding:14px 10px;text-align:center">
+      <div style="font-weight:700;font-size:.88rem;color:var(--purple);margin-bottom:2px">DFS Postorder</div>
+      <div style="font-size:.72rem;color:var(--text-muted);margin-bottom:10px;font-family:'Kanit',sans-serif">Bottom → Top<br>Left → Right</div>
+      <svg width="140" height="150" viewBox="0 0 140 150" style="display:block;margin:0 auto">
+        <line x1="70" y1="28" x2="35"  y2="75" stroke="#7c3aed" stroke-width="1.8"/>
+        <line x1="70" y1="28" x2="105" y2="75" stroke="#7c3aed" stroke-width="1.8"/>
+        <line x1="35" y1="75" x2="15"  y2="122" stroke="#c4b5fd" stroke-width="1.5"/>
+        <line x1="35" y1="75" x2="58"  y2="122" stroke="#c4b5fd" stroke-width="1.5"/>
+        <line x1="105" y1="75" x2="85" y2="122" stroke="#c4b5fd" stroke-width="1.5"/>
+        <circle cx="70"  cy="28"  r="17" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+        <circle cx="35"  cy="75"  r="15" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+        <circle cx="105" cy="75"  r="15" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+        <circle cx="15"  cy="122" r="13" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+        <circle cx="58"  cy="122" r="13" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+        <circle cx="85"  cy="122" r="13" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+        <!-- postorder: D=1, E=2, B=3, F=4, C=5, A=6 -->
+        <circle cx="88"  cy="14"  r="10" fill="#7c3aed"/><text x="88"  y="19"  text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">6</text>
+        <circle cx="51"  cy="61"  r="10" fill="#7c3aed"/><text x="51"  y="66"  text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">3</text>
+        <circle cx="28"  cy="109" r="10" fill="#7c3aed"/><text x="28"  y="114" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">1</text>
+        <circle cx="71"  cy="109" r="10" fill="#7c3aed"/><text x="71"  y="114" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">2</text>
+        <circle cx="119" cy="61"  r="10" fill="#7c3aed"/><text x="119" y="66"  text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">5</text>
+        <circle cx="98"  cy="109" r="10" fill="#7c3aed"/><text x="98"  y="114" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">4</text>
+        <text x="70" y="144" text-anchor="middle" fill="#7c3aed" font-family="monospace" font-size="8.5" font-weight="bold">L→R→Root</text>
+      </svg>
+      <div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--purple);background:#f5f3ff;border-radius:4px;padding:3px 6px">D E B F C A</div>
+    </div>
+
+    <!-- BFS / LEVEL ORDER -->
+    <div style="background:var(--bg2);border:1.5px solid #6ee7b7;border-radius:10px;padding:14px 10px;text-align:center">
+      <div style="font-weight:700;font-size:.88rem;color:#065f46;margin-bottom:2px">BFS / Level Order</div>
+      <div style="font-size:.72rem;color:var(--text-muted);margin-bottom:10px;font-family:'Kanit',sans-serif">Left → Right<br>Top → Bottom</div>
+      <svg width="140" height="150" viewBox="0 0 140 150" style="display:block;margin:0 auto">
+        <line x1="70" y1="28" x2="35"  y2="75" stroke="#10b981" stroke-width="1.8"/>
+        <line x1="70" y1="28" x2="105" y2="75" stroke="#10b981" stroke-width="1.8"/>
+        <line x1="35" y1="75" x2="15"  y2="122" stroke="#6ee7b7" stroke-width="1.5"/>
+        <line x1="35" y1="75" x2="58"  y2="122" stroke="#6ee7b7" stroke-width="1.5"/>
+        <line x1="105" y1="75" x2="85" y2="122" stroke="#6ee7b7" stroke-width="1.5"/>
+        <circle cx="70"  cy="28"  r="17" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+        <circle cx="35"  cy="75"  r="15" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+        <circle cx="105" cy="75"  r="15" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+        <circle cx="15"  cy="122" r="13" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+        <circle cx="58"  cy="122" r="13" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+        <circle cx="85"  cy="122" r="13" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+        <!-- BFS: A=1, B=2, C=3, D=4, E=5, F=6 -->
+        <circle cx="88"  cy="14"  r="10" fill="#065f46"/><text x="88"  y="19"  text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">1</text>
+        <circle cx="51"  cy="61"  r="10" fill="#065f46"/><text x="51"  y="66"  text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">2</text>
+        <circle cx="119" cy="61"  r="10" fill="#065f46"/><text x="119" y="66"  text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">3</text>
+        <circle cx="28"  cy="109" r="10" fill="#065f46"/><text x="28"  y="114" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">4</text>
+        <circle cx="71"  cy="109" r="10" fill="#065f46"/><text x="71"  y="114" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">5</text>
+        <circle cx="98"  cy="109" r="10" fill="#065f46"/><text x="98"  y="114" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9" font-weight="bold">6</text>
+        <text x="70" y="144" text-anchor="middle" fill="#065f46" font-family="monospace" font-size="8.5" font-weight="bold">Level by Level</text>
+      </svg>
+      <div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#065f46;background:#d1fae5;border-radius:4px;padding:3px 6px">A B C D E F</div>
+    </div>
+
   </div>
 
-  <div class="tab-content" id="tab-in">
-    <div class="callout tip">
-      <div class="callout-title">Inorder — Left → Root → Right</div>
-      <p>ลงซ้ายสุดก่อน → root → right — ใน BST ได้ sorted เสมอ!<br>
-         ผลลัพธ์: <strong style="color:var(--green-bright)">D B E A F C G</strong></p>
-    </div>
-    <div class="tree-dia" style="max-width:360px">
-      <svg width="320" height="165" viewBox="0 0 320 165">
-        <line x1="160" y1="35" x2="88"  y2="93" stroke="#16a34a" stroke-width="1.8"/>
-        <line x1="160" y1="35" x2="232" y2="93" stroke="#16a34a" stroke-width="1.8"/>
-        <line x1="88"  y1="93" x2="50"  y2="143" stroke="#86efac" stroke-width="1.5"/>
-        <line x1="88"  y1="93" x2="120" y2="143" stroke="#86efac" stroke-width="1.5"/>
-        <line x1="232" y1="93" x2="196" y2="143" stroke="#86efac" stroke-width="1.5"/>
-        <line x1="232" y1="93" x2="268" y2="143" stroke="#86efac" stroke-width="1.5"/>
-        <circle cx="160" cy="35"  r="19" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
-        <text x="160" y="41"  text-anchor="middle" fill="#15803d" font-family="monospace" font-size="12">A</text>
-        <circle cx="88"  cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
-        <text x="88"  y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="11">B</text>
-        <circle cx="232" cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
-        <text x="232" y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="11">C</text>
-        <circle cx="50"  cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-        <text x="50"  y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">D</text>
-        <circle cx="120" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-        <text x="120" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">E</text>
-        <circle cx="196" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-        <text x="196" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">F</text>
-        <circle cx="268" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-        <text x="268" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">G</text>
-        <!-- inorder: D=1,B=2,E=3,A=4,F=5,C=6,G=7 -->
-        <circle cx="178" cy="20" r="10" fill="#60a5fa"/><text x="178" y="25" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">4</text>
-        <circle cx="104" cy="79" r="10" fill="#60a5fa"/><text x="104" y="84" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">2</text>
-        <circle cx="66"  cy="130" r="10" fill="#60a5fa"/><text x="66" y="135" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">1</text>
-        <circle cx="136" cy="130" r="10" fill="#60a5fa"/><text x="136" y="135" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">3</text>
-        <circle cx="248" cy="79" r="10" fill="#60a5fa"/><text x="248" y="84" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">6</text>
-        <circle cx="212" cy="130" r="10" fill="#60a5fa"/><text x="212" y="135" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">5</text>
-        <circle cx="284" cy="130" r="10" fill="#60a5fa"/><text x="284" y="135" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">7</text>
-      </svg>
-    </div>
-    <div class="callout cp"><div class="callout-title">⚡ CP Use Case</div>
-    <p>Inorder ของ BST → sorted array ทันที — ใช้ list ค่าทุกตัวเรียงลำดับ หรือ verify ว่าต้นไม้คือ BST จริง</p></div>
-  </div>
-
-  <div class="tab-content" id="tab-post">
-    <div class="callout tip">
-      <div class="callout-title">Postorder — Left → Right → Root</div>
-      <p>ลูกต้องเสร็จก่อน parent เสมอ — root มาสุดท้าย<br>
-         ผลลัพธ์: <strong style="color:var(--green-bright)">D E B F G C A</strong></p>
-    </div>
-    <div class="tree-dia" style="max-width:360px">
-      <svg width="320" height="165" viewBox="0 0 320 165">
-        <line x1="160" y1="35" x2="88"  y2="93" stroke="#16a34a" stroke-width="1.8"/>
-        <line x1="160" y1="35" x2="232" y2="93" stroke="#16a34a" stroke-width="1.8"/>
-        <line x1="88"  y1="93" x2="50"  y2="143" stroke="#86efac" stroke-width="1.5"/>
-        <line x1="88"  y1="93" x2="120" y2="143" stroke="#86efac" stroke-width="1.5"/>
-        <line x1="232" y1="93" x2="196" y2="143" stroke="#86efac" stroke-width="1.5"/>
-        <line x1="232" y1="93" x2="268" y2="143" stroke="#86efac" stroke-width="1.5"/>
-        <circle cx="160" cy="35"  r="19" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
-        <text x="160" y="41"  text-anchor="middle" fill="#15803d" font-family="monospace" font-size="12">A</text>
-        <circle cx="88"  cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
-        <text x="88"  y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="11">B</text>
-        <circle cx="232" cy="93"  r="17" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
-        <text x="232" y="99"  text-anchor="middle" fill="#374151" font-family="monospace" font-size="11">C</text>
-        <circle cx="50"  cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-        <text x="50"  y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">D</text>
-        <circle cx="120" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-        <text x="120" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">E</text>
-        <circle cx="196" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-        <text x="196" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">F</text>
-        <circle cx="268" cy="143" r="15" fill="#f9fafb" stroke="#d1d5db" stroke-width="1.5"/>
-        <text x="268" y="149" text-anchor="middle" fill="#9ca3af" font-family="monospace" font-size="10">G</text>
-        <!-- postorder D=1,E=2,B=3,F=4,G=5,C=6,A=7 -->
-        <circle cx="178" cy="20" r="10" fill="#c084fc"/><text x="178" y="25" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">7</text>
-        <circle cx="104" cy="79" r="10" fill="#c084fc"/><text x="104" y="84" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">3</text>
-        <circle cx="66"  cy="130" r="10" fill="#c084fc"/><text x="66" y="135" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">1</text>
-        <circle cx="136" cy="130" r="10" fill="#c084fc"/><text x="136" y="135" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">2</text>
-        <circle cx="248" cy="79" r="10" fill="#c084fc"/><text x="248" y="84" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">6</text>
-        <circle cx="212" cy="130" r="10" fill="#c084fc"/><text x="212" y="135" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">4</text>
-        <circle cx="284" cy="130" r="10" fill="#c084fc"/><text x="284" y="135" text-anchor="middle" fill="#000" font-family="monospace" font-size="9" font-weight="bold">5</text>
-      </svg>
-    </div>
-    <div class="callout cp"><div class="callout-title">⚡ CP Use Case</div>
-    <p>ใช้ตอนคำนวณค่าจาก subtree ขึ้นมา เช่น subtree size, tree DP — ลูกต้องเสร็จก่อนเสมอ</p></div>
-  </div>
-
-  <table class="tbl" style="margin-top:18px">
-    <thead><tr><th>Traversal</th><th>ลำดับ</th><th>ผลลัพธ์ (A-G)</th><th>ใช้ตอน</th></tr></thead>
+  <table class="tbl" style="margin-top:4px">
+    <thead><tr><th>Traversal</th><th>ลำดับ</th><th>ผลลัพธ์</th><th>ใช้ตอน</th></tr></thead>
     <tbody>
-      <tr><td style="color:var(--gold)">Preorder</td><td>Root → L → R</td><td>A B D E C F G</td><td>Copy / Serialize tree</td></tr>
-      <tr><td style="color:var(--blue)">Inorder</td><td>L → Root → R</td><td>D B E A F C G</td><td>BST → sorted output</td></tr>
-      <tr><td style="color:var(--purple)">Postorder</td><td>L → R → Root</td><td>D E B F G C A</td><td>Subtree computation / Tree DP</td></tr>
+      <tr><td style="color:var(--gold);font-weight:700">Preorder</td><td>Root → L → R</td><td style="font-family:'JetBrains Mono',monospace">A B D E C F</td><td>Copy / Serialize tree</td></tr>
+      <tr><td style="color:var(--blue);font-weight:700">Inorder</td><td>L → Root → R</td><td style="font-family:'JetBrains Mono',monospace">D B E A F C</td><td>BST → sorted output</td></tr>
+      <tr><td style="color:var(--purple);font-weight:700">Postorder</td><td>L → R → Root</td><td style="font-family:'JetBrains Mono',monospace">D E B F C A</td><td>Subtree / Tree DP</td></tr>
+      <tr><td style="color:#065f46;font-weight:700">BFS</td><td>Level by Level</td><td style="font-family:'JetBrains Mono',monospace">A B C D E F</td><td>Shortest path / Level info</td></tr>
     </tbody>
   </table>
+
+  <div class="callout cp" style="margin-top:18px">
+    <div class="callout-title">⚡ CP ใช้ตัวไหน?</div>
+    <p>
+      <strong style="color:var(--gold)">Preorder</strong> — เดิน DFS บน N-ary tree ใน CP (เยี่ยม node ก่อนลงลูก)<br>
+      <strong style="color:var(--purple)">Postorder</strong> — Tree DP, Subtree Size (<code>sz[u] += sz[v]</code> ต้องรอลูกก่อน)<br>
+      <strong style="color:var(--blue)">Inorder</strong> — ใช้กับ BST เท่านั้น (ได้ sorted output)<br>
+      <strong style="color:#065f46">BFS</strong> — หา shortest path, ข้อมูล level ของ node
+    </p>
+  </div>
 </section>
 
 <!-- CH4: REPRESENTATION -->
@@ -783,20 +891,6 @@ vector&lt;<span class="type">int</span>&gt; adj[<span class="num">100005</span>]
       </div>
     </div>
   </div>
-
-  <h3>Binary Tree Types — ภาพรวม</h3>
-  <table class="tbl">
-    <thead><tr><th>Type</th><th>เงื่อนไข</th><th>ใช้ใน</th></tr></thead>
-    <tbody>
-      <tr><td style="color:var(--green)">Full BT</td><td>ทุก node มีลูก 0 หรือ 2 ตัว</td><td>Huffman Coding</td></tr>
-      <tr><td style="color:var(--gold)">Perfect BT</td><td>ทุก level เต็ม, leaves depth เดียวกัน</td><td>Segment Tree</td></tr>
-      <tr><td style="color:var(--blue)">Complete BT</td><td>เต็มทุก level ยกเว้นสุดท้าย (เติมซ้ายก่อน)</td><td>Binary Heap</td></tr>
-      <tr><td style="color:var(--purple)">Balanced BT</td><td>|height(L) − height(R)| ≤ 1</td><td>AVL, Red-Black</td></tr>
-      <tr><td style="color:var(--red)">BST</td><td>Left &lt; Root &lt; Right ทุก node</td><td>ค้นหา O(log n)</td></tr>
-    </tbody>
-  </table>
-  <div class="callout cp"><div class="callout-title">⚡ CP Note</div>
-  <p>โจทย์ CP มักให้ tree เป็น adjacency list ทั่วไป — ไม่ต้องรู้ว่า binary/balanced ก็ใช้ DFS/BFS ได้ทุกกรณี</p></div>
 </section>
 
 <footer>
