@@ -563,47 +563,39 @@ node 7 depth=2 parent=4
   <div class="exercise-grid">
     <div class="ex-card">
       <div class="ex-num">Exercise 01</div>
-      <div class="ex-title">นับจำนวน Node ทั้งหมด</div>
-      <div class="ex-desc">รับ tree n nodes แล้วพิมพ์จำนวน node ทั้งหมด<br>
-      ใช้ DFS skeleton จาก Ch2 — นับทุก node ที่เดินถึง</div>
-      <div class="ex-hint">Output: 7</div>
-    </div>
-    <div class="ex-card">
-      <div class="ex-num">Exercise 02</div>
-      <div class="ex-title">หา Leaf Nodes</div>
-      <div class="ex-desc">พิมพ์ node ที่เป็น leaf ทั้งหมด เรียงจากน้อยไปมาก<br>
+      <div class="ex-title">หาจำนวน Leaf Nodes</div>
+      <div class="ex-desc">พิมพ์จำนวน node ที่เป็น leaf ทั้งหมด <br>
       <em>hint: ใน DFS ถ้า node ไม่มี child หลัง skip parent → เป็น leaf</em><br>
       ใช้ <code>bool isLeaf = true</code> flag ใน DFS ตาม Ch2</div>
       <div class="ex-hint">Output: 3 5 6 7</div>
     </div>
     <div class="ex-card">
-      <div class="ex-num">Exercise 03</div>
+      <div class="ex-num">Exercise 02</div>
       <div class="ex-title">หา Height ของ Tree</div>
       <div class="ex-desc">พิมพ์ height (ความสูง) ของ tree — คือ depth สูงสุดที่มี node อยู่<br>
       ใช้ <code>dep[]</code> จาก Ch3 แล้วหาค่า max หลัง dfs เสร็จ</div>
       <div class="ex-hint">Output: 2</div>
     </div>
+      <div class="ex-card">
+      <div class="ex-num">Exercise 03</div>
+      <div class="ex-title">หา Leaf Nodes</div>
+      <div class="ex-desc">พิมพ์ node ที่เป็น leaf ทั้งหมด เรียงจากน้อยไปมาก<br>
+      <div class="ex-hint">Output: 3 5 6 7</div>
+    </div>
     <div class="ex-card">
       <div class="ex-num">Exercise 04</div>
-      <div class="ex-title">นับ Node ที่ depth = k</div>
-      <div class="ex-desc">รับ k เพิ่มเติมจาก input แล้วพิมพ์จำนวน node ที่อยู่ที่ depth k<br>
-      ใช้ <code>dep[]</code> จาก Ch3 — loop นับหลัง dfs เสร็จ</div>
-      <div class="ex-hint">Input k=1 → Output: 3</div>
-    </div>
-    <div class="ex-card">
-      <div class="ex-num">Exercise 05</div>
-      <div class="ex-title">หา Subtree ที่ใหญ่ที่สุด</div>
-      <div class="ex-desc">พิมพ์ node ที่มี subtree size ใหญ่ที่สุด (ไม่นับ root)<br>
-      ใช้ <code>sz[]</code> จาก Ch4 — loop หา max ใน node 2..n</div>
-      <div class="ex-hint">Output: 2 (sz=3)</div>
-    </div>
-    <div class="ex-card">
-      <div class="ex-num">Exercise 06</div>
       <div class="ex-title">พิมพ์ Path จาก Root ถึง Node v</div>
       <div class="ex-desc">รับ v จาก input แล้วพิมพ์ path จาก root (node 1) ถึง node v<br>
       ใช้ <code>par[]</code> จาก Ch3 — trace ย้อนกลับจาก v ขึ้นไปหา root</div>
       <div class="ex-hint">Input v=7 → Output: 1 4 7</div>
     </div>
+    <div class="ex-card">
+      <div class="ex-num">Exercise 05</div>
+      <div class="ex-title">นับ Node ที่ depth = k</div>
+      <div class="ex-desc">รับ k เพิ่มเติมจาก input แล้วพิมพ์จำนวน node ที่อยู่ที่ depth k<br>
+      ใช้ <code>dep[]</code> จาก Ch3 — loop นับหลัง dfs เสร็จ</div>
+    </div>
+
   </div>
 </section>
 
